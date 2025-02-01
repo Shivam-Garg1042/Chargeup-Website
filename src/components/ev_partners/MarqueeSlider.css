@@ -1,0 +1,48 @@
+/* Container for the entire marquee */
+.marquee-container {
+  position: relative;
+  overflow: hidden; /* Hide anything outside the container */
+  background-color: #f6f4f0; /* Matches the background */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 120px; /* Adjust based on logo height */
+}
+
+/* Single marquee line */
+.marquee {
+  display: flex;
+  align-items: center; /* Ensure logos are vertically centered */
+  gap: 60px; /* Add spacing between logos */
+  animation: scroll 30s linear infinite; /* Continuous scroll */
+}
+
+/* Logo wrapper styling */
+.logo-wrapper {
+  flex: 0 0 auto; /* Prevent shrinking */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo styling */
+.logo {
+  height: 80px; /* Adjust for consistent logo size */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+}
+
+/* Scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(-100%); /* Move fully off-screen to the left */
+  }
+}
+
+/* Pause the animation on hover */
+.marquee-container:hover .marquee {
+  animation-play-state: paused;
+}
