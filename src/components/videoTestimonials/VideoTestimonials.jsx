@@ -14,76 +14,79 @@ const VideoTestimonials = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-6 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column */}
-          <div className="space-y-8 lg:pr-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Hear what our
-              <span className="block text-blue-600">customers are saying</span>
+        <div className="grid grid-cols-1 lg:grid-cols-[400px,1fr] gap-24">
+          {/* Left column */}
+          <div className=" space-y-8">
+            <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+              Hear what our customers are saying
             </h2>
             
-            <div className="flex items-center gap-6">
-              <div className="flex items-baseline gap-3">
-                <span className="text-5xl font-bold text-gray-900 font-mono">{String(currentIndex + 1).padStart(2, '0')}</span>
-                <span className="text-gray-400 font-mono">/ {String(testimonialData.length).padStart(2, '0')}</span>
+            <div className="space-y-6">
+              <div className="space-y-4">
+                {/* <p className="text-gray-600">Follow us on</p> */}
+                <div className="flex gap-4">
+                  
+                </div>
               </div>
-              <div className="flex gap-3">
-                <button 
-                  onClick={prevTestimonial} 
-                  className="p-3 rounded-full border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 active:scale-95"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button 
-                  onClick={nextTestimonial} 
-                  className="p-3 rounded-full border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 active:scale-95"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+              
+              <div className="flex items-center gap-6">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-5xl font-bold text-gray-900">{String(currentIndex + 1).padStart(2, '0')}</span>
+                  <span className="text-gray-400">/ {String(testimonialData.length).padStart(2, '0')}</span>
+                </div>
+                <div className="flex gap-3">
+                  <button onClick={prevTestimonial} className="p-2 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-50">
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button onClick={nextTestimonial} className="p-2 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-50">
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-              <div className="relative aspect-[16/9]">
-                <img 
-                  src={testimonialData[currentIndex].thumbnail} 
-                  alt={testimonialData[currentIndex].name} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-                <button 
-                  onClick={() => setSelectedVideo(testimonialData[currentIndex])} 
-                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
-                >
-                  <div className="w-20 h-20 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-all duration-300 group-hover:scale-110 shadow-lg">
-                    <Play className="w-10 h-10 text-blue-600 group-hover:text-blue-700 transition-colors ml-1" fill="currentColor" />
-                  </div>
-                </button>
-              </div>
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-6">
+        
+          <div className="flex items-start justify-center lg:justify-start">
+            <div className="w-full lg:w-[400px]">
+              <div className="overflow-hidden rounded-xl shadow-lg bg-white">
+                <div className="relative aspect-video bg-gray-200">
                   <img 
-                    src={testimonialData[currentIndex].avatar} 
-                    alt={testimonialData[currentIndex].name} 
-                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-100"
+                    src={testimonialData[currentIndex].thumbnail} 
+                    alt="Video thumbnail" 
+                    className="w-full h-full object-cover"
                   />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-lg">{testimonialData[currentIndex].name}</h3>
-                    <p className="text-gray-500">{testimonialData[currentIndex].role} · {testimonialData[currentIndex].company}</p>
+                  <button 
+                    onClick={() => setSelectedVideo(testimonialData[currentIndex])} 
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors"
+                  >
+                    <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-600 text-white">
+                      <Play className="w-8 h-8 ml-1" />
+                    </div>
+                  </button>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src={testimonialData[currentIndex].avatar} 
+                      alt={testimonialData[currentIndex].name} 
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h3 className="font-semibold text-gray-900">{testimonialData[currentIndex].name}</h3>
+                      <p className="text-gray-500">{testimonialData[currentIndex].role} · {testimonialData[currentIndex].company}</p>
+                    </div>
                   </div>
                 </div>
-                <blockquote className="text-gray-600 leading-relaxed text-lg italic">"{testimonialData[currentIndex].quote}"</blockquote>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Video Modal */}
+      
       {selectedVideo && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 z-50 animate-fade-in">
           <div className="bg-white rounded-xl overflow-hidden shadow-2xl max-w-4xl w-full mx-4 relative animate-scale-in">
@@ -132,33 +135,23 @@ const testimonialData = [
   {
     id: 1,
     videoId: "dQw4w9WgXcQ",
-    thumbnail: "/api/placeholder/640/360",
-    avatar: "/api/placeholder/48/48",
-    name: "Raju",
-    role: "Founder",
+    thumbnail: "",
+    avatar: "",
+    name: "ABC",
+    role: "ZXCVBNM",
     company: "Chargeup",
-    quote: "Within a short time of becoming a Business Partner, we have achieved significant milestones in terms of revenues and rides.",
+    quote: "Nisi elit sunt et tempor officia nulla sit irure enim esse amet cillum anim quis. Minim occaecat excepteur ipsum incididunt qui magna ut tempor dolore enim cupidatat veniam irure sunt. Aliquip velit culpa quis ipsum culpa et eiusmod laboris. Pariatur incididunt amet dolore dolore pariatur veniam tempor esse officia eiusmod magna adipisicing nulla cupidatat.",
   },
   {
     id: 2,
     videoId: "dQw4w9WgXcQ",
-    thumbnail: "/api/placeholder/640/360",
-    avatar: "/api/placeholder/48/48",
-    name: "Aakash",
-    role: "CEO",
-    company: "Chargeup",
-    quote: "The platform has transformed how we handle deliveries. The efficiency gains and customer satisfaction improvements have been remarkable.",
+    thumbnail: "",
+    avatar: "",
+    name: "ASDFGHJKL",
+    role: "ABCD",
+    company: "CHargeup",
+    quote: "Nisi elit sunt et tempor officia nulla sit irure enim esse amet cillum anim quis. Minim occaecat excepteur ipsum incididunt qui magna ut tempor dolore enim cupidatat veniam irure sunt. Aliquip velit culpa quis ipsum culpa et eiusmod laboris. Pariatur incididunt amet dolore dolore pariatur veniam tempor esse officia eiusmod magna adipisicing nulla cupidatat.",
   },
-  {
-    id: 3,
-    videoId: "dQw4w9WgXcQ",
-    thumbnail: "/api/placeholder/640/360",
-    avatar: "/api/placeholder/48/48",
-    name: "David Chen",
-    role: "Operations Director",
-    company: "Metro Express",
-    quote: "The integration process was seamless, and the support team has been exceptional. Our drivers love the user-friendly interface.",
-  }
 ];
 
 export default VideoTestimonials;

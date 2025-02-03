@@ -1,5 +1,5 @@
 import LogoImage from '../../assets/chargeup_logo_blue.jpg';
-import { FaInstagram, FaTwitter, FaYoutube , FaFacebook  } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaInstagram, FaTwitter, FaYoutube , FaFacebook } from 'react-icons/fa'; // Importing icons from react-icons
 
 const Footer = () => {
   return (

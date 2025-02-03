@@ -33,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
+            
               <Home />
               <Benefits/>
               {/* <MarqueeSlider /> */}
@@ -72,6 +73,7 @@ function App() {
             
             <br/>
             <BePartner/>
+            <IntegrationPartners/>
             
             
             </>

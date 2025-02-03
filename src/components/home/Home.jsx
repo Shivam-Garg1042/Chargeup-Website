@@ -1,15 +1,22 @@
 
-// import backgroundVideo from '../../assets/background-video.mp4'; // Add your video to assets folder
+import backgroundVideo from '../../assets/bg-video.mp4'; // Add your video to assets folder
 
 const Home = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Video Background */}
-      {/* 
-       */}
+            <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={backgroundVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-start px-20 max-w-7xl mx-auto">
+      {/* <div className="relative z-10 h-full flex flex-col justify-center items-start px-20 max-w-7xl mx-auto">
         <h1 className="text-white text-6xl font-bold leading-tight mb-4">
         Powering Million  {' '}
           <span className="text-[#79D7BE]">Drivers</span>
@@ -17,7 +24,7 @@ const Home = () => {
         <p className="text-white text-xl max-w-2xl">
         India’s leading EV financing and asset management company 
         </p>
-      </div>
+      </div> */}
 
       {/* Optional Gradient Overlay */}
       <div 
