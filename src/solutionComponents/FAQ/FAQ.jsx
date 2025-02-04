@@ -15,7 +15,7 @@ const FAQ = () => {
         >
       <h2 className="text-4xl font-bold text-center mb-12 text-[#2E5077]">FAQs</h2>
       </motion.div>
-      <div className="max-w-5xl mx-auto space-y-2">
+      <div className="max-w-6xl mx-auto space-y-2">
         {faqData.map((faq, index) => (
           <FAQItem
             key={index}

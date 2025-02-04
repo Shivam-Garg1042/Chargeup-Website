@@ -21,7 +21,10 @@ import Activities from './communityComponents/groupActivities/Activities.jsx';
 import GalleryWrapper from './communityComponents/testimony/GalleryWrapper.jsx';
 import Career from './peopleComponents/career/Career.jsx';
 import Commandments from './peopleComponents/commandments/Commandments.jsx';
-import VideoTestimonials from './components/videoTestimonials/VideoTestimonials.jsx';
+import IndiaMap from './components/map/IndiaMap.jsx';
+import TestimonialSlider from './components/videoTestimonials/TestimonialSlider.jsx';
+import InvestorGrid from './investorsComponent/investors/InvestorGrid.jsx';
+
 
 
 function App() {
@@ -33,13 +36,17 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-            
+              <br/>
+              <br/>
+              <br/>
+              <br/>
               <Home />
               <Benefits/>
               {/* <MarqueeSlider /> */}
               <SustainabilitySection/>
               <IntegrationPartners/>
-              <VideoTestimonials/>
+             <IndiaMap/>
+              <TestimonialSlider/>
               
               {/* <Community/> */}
             </>
@@ -60,8 +67,8 @@ function App() {
           {/* <Route path="/contact" element={<SustainabilitySection/>} /> */}
           <Route path="/solutions" element={
             <>
-            <br/>
-            <br/>
+            
+            <Benefits/>
             <FAQ/>
             
             
@@ -85,6 +92,7 @@ function App() {
             <br/>
             <br/>
             <NewsSection/>
+            <InvestorGrid/>
             </>
           } />
            <Route path="/community" element={

@@ -30,15 +30,22 @@ const ContactModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm ">
+    // <div className="fixed inset-0 flex items-center justify-center z-50  bg-black/70 backdrop-blur-sm ">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm" style={{ marginLeft:'0px'}}>
   <div className="bg-[#013c4c] text-white rounded-lg shadow-xl p-6 w-full max-w-4xl h-auto max-h-[87vh] m-4 relative overflow-y-auto">
         {/* Close Button */}
-        <button
-          onClick={onClose}
+        {/* <button
+          onClick={onClose}x
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
         >
           <X size={24} />
-        </button>
+        </button> */}
+        <button
+  onClick={onClose}
+  className="absolute top-4 right-4 p-1 text-white hover:text-gray-300 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors duration-200"
+>
+  <X size={24} />
+</button>
 
         {/* Modal Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
@@ -54,7 +61,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             </div>
             
             <div className="space-y-2">
-              <p className="text-lg"> 📞 18001230181</p>
+              <p className="text-lg"> 📱 18001230181</p>
               
             </div>
             
@@ -163,7 +170,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             </button>
           </form>
 
-          {/* Right-Side Lines Design */}
+          
           
       </div>
     </div>
