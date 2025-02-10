@@ -11,7 +11,7 @@ import Footer from './components/footer/Footer';
 import IntegrationPartners from './components/integrationPartners/IntegrationPartners';
 import FAQ from './solutionComponents/FAQ/FAQ.jsx';
 import Benefits from './components/benefits/Benefits.jsx'
-import Community from './components/community/Community.jsx';
+
 import TeamGrid from './aboutComponents/team/TeamGrid.jsx';
 import BePartner from './partnersComponent/becomeOurPartner/BePartner.jsx';
 import NewsSection from './investorsComponent/newsSection/NewsSection.jsx';
@@ -52,7 +52,7 @@ function App() {
               <TestimonialSlider/>
               <AppDownloadButton/>
               
-              {/* <Community/> */}
+              
             </>
           } />
           <Route path="/about" element={

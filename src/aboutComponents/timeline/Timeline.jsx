@@ -89,6 +89,13 @@ const TimelineSlider = () => {
 
   return (
     <div 
+  className="relative" 
+  style={{
+    background: 'linear-gradient(135deg,rgb(21, 202, 88) 0%,rgb(254, 148, 60) 100%)'
+  }}
+>
+      <h1 className="text-4xl font-bold text-center py-8 text-white">Our Journey</h1>
+    <div 
       ref={containerRef}
       className="relative h-[600px] overflow-y-auto scrollbar-hide"
       style={{
@@ -223,6 +230,7 @@ const TimelineSlider = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
