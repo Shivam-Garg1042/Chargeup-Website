@@ -24,6 +24,9 @@ import Commandments from './peopleComponents/commandments/Commandments.jsx';
 import IndiaMap from './components/map/IndiaMap.jsx';
 import TestimonialSlider from './components/videoTestimonials/TestimonialSlider.jsx';
 import InvestorGrid from './investorsComponent/investors/InvestorGrid.jsx';
+import AppDownloadButton from './components/downloadButton/AppDownloadButton.jsx';
+import VerticalJourneyTimeline from './aboutComponents/timeline/Timeline.jsx';
+import TimelineSlider from './aboutComponents/timeline/Timeline.jsx';
 
 
 
@@ -47,6 +50,7 @@ function App() {
               <IntegrationPartners/>
              <IndiaMap/>
               <TestimonialSlider/>
+              <AppDownloadButton/>
               
               {/* <Community/> */}
             </>
@@ -59,7 +63,10 @@ function App() {
             <br/>
             <Story/>
             <TeamGrid/>
-            {/* <VerticalTimeline/> */}
+            <AppDownloadButton/>
+            
+            <TimelineSlider/>
+            
             
             
             
@@ -70,7 +77,7 @@ function App() {
             
             <Benefits/>
             <FAQ/>
-            
+            <AppDownloadButton/>
             
             </>
           } />
@@ -81,7 +88,7 @@ function App() {
             <br/>
             <BePartner/>
             <IntegrationPartners/>
-            
+            <AppDownloadButton/>
             
             </>
           } />
@@ -93,6 +100,7 @@ function App() {
             <br/>
             <NewsSection/>
             <InvestorGrid/>
+            <AppDownloadButton/>
             </>
           } />
            <Route path="/community" element={
@@ -103,6 +111,7 @@ function App() {
             <br/>
             <Activities/>
             <GalleryWrapper/>
+            <AppDownloadButton/>
             </>
           } />
           <Route path="/people" element={
@@ -114,6 +123,7 @@ function App() {
             <Career/>
             <Commandments/>
             <Activities/>
+            <AppDownloadButton/>
             </>
           } />
           

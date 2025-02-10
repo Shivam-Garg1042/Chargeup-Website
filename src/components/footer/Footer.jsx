@@ -1,5 +1,6 @@
 import LogoImage from '../../assets/chargeup_logo_blue.jpg';
 import { FaInstagram, FaTwitter, FaYoutube , FaFacebook } from 'react-icons/fa'; // Importing icons from react-icons
+import {Mail,Phone,MapPin} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -26,22 +27,26 @@ const Footer = () => {
         {/* Company Address */}
         <div>
           <h4 className="font-semibold mb-2">E‐Chargeup Solutions Private Limited</h4>
-          <p className="text-sm">
-            300/3, 1st Floor, 
+          <p className="text-sm flex gap-2">
+            <MapPin/>
+            <span>300/3, 1st Floor, 
             <br />
             MG Road, Sultanpur,
             <br />
-            New Delhi – 11003
+            New Delhi – 110030
+            </span>
           </p>
         </div>
 
         {/* Contact Us Section */}
         <div>
           <h4 className="font-semibold mb-2">Contact us</h4>
-          <p className="text-sm">
-            📞 Ph No. 18001230181
-            <br />
-            📧 E-Mail: info@echargeup.com
+          <p className="text-sm flex items-center gap-2 ">
+            <Phone/> 18001230181
+            </p>
+            
+            <p className="text-sm flex items-center gap-2 mt-2 ">
+            <Mail/> info@echargeup.com
           </p>
           <div className="flex gap-4 mt-4">
           {/* <h4 className="font-semibold mb-2">Follow us on:</h4> */}
