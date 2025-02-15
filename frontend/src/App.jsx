@@ -102,8 +102,9 @@ function App() {
             <br/>
             <br/>
             <br/>
-            <NewsSection/>
             <InvestorGrid/>
+            <NewsSection/>
+            
             <AppDownloadButton/>
             </>
           } />
