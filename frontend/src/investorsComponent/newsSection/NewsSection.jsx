@@ -38,13 +38,13 @@ const NewsSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-12">Chargeup in the News</h2>
-      <div
-        className={`flex gap-6 overflow-x-auto space-x-4 scrollbar-hide snap-x snap-mandatory relative ${isMobile ? '' : 'overflow-hidden'}`}
-        ref={scrollRef}
-        onWheel={handleScroll}
-      >
+    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto relative"> {/* Added relative here */}
+  <h2 className="text-4xl font-bold text-center mb-12">Chargeup in the News</h2>
+  <div
+    className={`flex gap-6 overflow-x-auto space-x-4 scrollbar-hide snap-x snap-mandatory relative ${isMobile ? '' : 'overflow-hidden'}`}
+    ref={scrollRef}
+    onWheel={handleScroll}
+  >
         {isMobile
           ? newsData.map((news) => (
               <div key={news.id} className="snap-center shrink-0 w-[90%] sm:w-[48%] lg:w-[30%]">
@@ -62,21 +62,25 @@ const NewsSection = () => {
       
       {!isMobile && (
         <>
-          <button
-  onClick={prevSlide}
-  className="absolute left-20 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200"
-  aria-label="Previous slide"
->
-  <ChevronLeft className="w-6 h-6" />
-</button>
+          {!isMobile && (
+    <>
+      <button 
+        onClick={prevSlide} 
+        className="absolute left-0 top-[45%] -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200 z-10" 
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
 
-<button
-  onClick={nextSlide}
-  className="absolute right-20 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200"
-  aria-label="Next slide"
->
-  <ChevronRight className="w-6 h-6" />
-</button>
+      <button 
+        onClick={nextSlide} 
+        className="absolute right-4 top-[45%] -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200 z-10" 
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+  </>
+)}
 
           
           <div className="flex justify-center mt-8 space-x-2">

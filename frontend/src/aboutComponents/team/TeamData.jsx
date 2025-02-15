@@ -1,53 +1,53 @@
-import arunM from "../../assets/arunM.png";
-import satishM from "../../assets/satishM.webp";
-import varunG from "../../assets/varunG.webp";
-import swati from "../../assets/swati.webp";
-import anmolC from "../../assets/anmolC.jpg";
-import chetanG from "../../assets/chetanG.webp";
-import sunilS from "../../assets/sunilS.webp";
+import employee1 from "../../assets/employee1.webp";
+import employee2 from "../../assets/employee2.webp";
+import employee3 from "../../assets/employee3.png";
+import employee4 from "../../assets/employee4.webp";
+import employee5 from "../../assets/employee5.jpg";
+import employee6 from "../../assets/employee6.webp";
+import employee7 from "../../assets/employee7.webp";
 
 export const teamData = [
     {
         name: "Varun Goenka",
         role: "CEO",
-        image: varunG,
+        image: employee1,
         bio: "Varun Goenka"
       },
       {
         name: "Satish Mittal",
         role: "CDO",
-        image: satishM,
+        image: employee2,
         bio: "Satish Mittal"
       },
     {
       name: "Arun Madan",
       role: "CFO",
-      image: arunM,
+      image: employee3,
       bio: "Arun M"
     }
     ,
     {
       name: "Swati",
       role: "CHRO",
-      image: swati,
+      image: employee4,
       bio: "Swati"
     },
     {
       name: "Anmol chouksey",
       role: "Chief of staff",
-      image: anmolC,
+      image: employee5,
       bio: "Arun M"
     },
     {
       name: "Chetan Guglani",
       role: "Lead Product",
-      image: chetanG,
+      image: employee7,
       bio: "Arun M"
     },
     {
       name: "Sunil Singh",
       role: "Growth Head",
-      image: sunilS,
+      image: employee6,
       bio: "Arun M"
     }
    

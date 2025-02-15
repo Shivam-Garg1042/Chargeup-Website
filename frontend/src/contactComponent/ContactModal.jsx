@@ -197,7 +197,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
               <div>
                 <label htmlFor="message" className="block text-sm mb-2 text-white">
-                  <p className="flex gap-1">How can we help? <p className="text-red-600">*</p></p>
+                  <p className="flex gap-1">Comment or message <p className="text-red-600">*</p></p>
                 </label>
                 <textarea
                   id="message"
