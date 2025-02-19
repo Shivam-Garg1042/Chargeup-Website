@@ -30,6 +30,7 @@ const Footer = () => {
         {/* Company Address */}
         <div>
           <h4 className="font-semibold mb-2">E‐Chargeup Solutions Private Limited</h4>
+          <a href = "https://maps.app.goo.gl/3PDKab7FuiXp9roz6" target="_blank" rel="noopener noreferrer" className="text-[#F6F4F0] hover:text-secondary text-2xl">
           <p className="text-sm flex gap-2">
             <MapPin/>
             <span>300/3, 1st Floor, 
@@ -38,7 +39,7 @@ const Footer = () => {
             <br />
             New Delhi – 110030
             </span>
-          </p>
+          </p></a>
         </div>
 
         {/* Contact Us Section */}

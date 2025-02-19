@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import LogoImage from '../assets/chargeup_logo_blue.jpg';
 import { FaInstagram, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import axios from 'axios';
 
 const ConfirmationModal = ({ onClose }) => {
@@ -99,10 +99,12 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <div className="space-y-2">
                   <p className="text-lg">E‐Chargeup Solutions Private Limited</p>
                   <br />
+                  <a href = "https://maps.app.goo.gl/3PDKab7FuiXp9roz6" target="_blank" rel="noopener noreferrer" className="text-[#F6F4F0] hover:text-secondary text-2xl">
                   <p className="text-lg">
                     <span>300/3, 1st Floor,<br />
                       MG Road, Sultanpur,<br />
                       New Delhi – 110030</span></p>
+                      </a>
                 </div>
 
                 <div className="flex space-x-4">

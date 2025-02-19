@@ -14,14 +14,14 @@ const InvestorsSection = () => {
     {
       id: 2,
       name: "Anicut",
-      logo: investor2,
+      logo: investor3,
       description: "Leading investment firm specializing in growth capital",
       yearJoined: "2021"
     },
     {
       id: 3,
       name: "MapmyIndia",
-      logo: investor3,
+      logo: investor2,
       description: "India's leading digital mapping company",
       yearJoined: "2023"
     }
