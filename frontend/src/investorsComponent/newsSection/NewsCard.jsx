@@ -93,4 +93,4 @@ const ResearchSection = ({ researchData }) => {
   );
 };
 
-export default ResearchSection;
+export default NewsCard;
