@@ -71,16 +71,34 @@ const IndiaMap = () => {
 
     // Cities coordinates (yellow dots)
     const citiesCoordinates = [
-        { name: 'Delhi', lat: 28.6139, lon: 77.2090 },
-        // { name: 'Pune', lat: 18.5204, lon: 73.8567 },
-        { name: 'Lucknow', lat: 26.8467, lon: 80.9462 },
-        { name: 'Kanpur', lat: 26.4499, lon: 80.3319 },
-        { name: 'Bhopal', lat: 23.2599, lon: 77.4126 },
-        { name: 'Indore', lat: 22.7196, lon: 75.8577 },
-        { name: 'Jaipur', lat: 26.9124, lon: 75.7873 },
-        // { name: 'Jammu and Kashmir', lat: 23.0225, lon: 72.5714 },
-        { name: 'Patna', lat: 25.5941, lon: 85.1376 },
-        { name: 'Kolkata', lat: 22.5726, lon: 88.3639 },
+        { name: 'Gurugram', lat: 28.4595, lon: 77.0266 },
+        { name: 'Srinagar (Summer)', lat: 34.0837, lon: 74.7973 },
+{ name: 'Chandigarh', lat: 30.7333, lon: 76.7794 }, // Union Territory but serves as capital
+{ name: 'Bhopal', lat: 23.2599, lon: 77.4126 },
+{ name: 'Indore', lat: 22.7196, lon: 75.8577 },
+{ name: 'Jabalpur', lat: 23.1815, lon: 79.9864 },
+{ name: 'Gwalior', lat: 26.2183, lon: 78.1828 },
+{ name: 'Ujjain', lat: 23.1765, lon: 75.7885 },
+{ name: 'Guwahati', lat: 26.1445, lon: 91.7362 },
+{ name: 'Silchar', lat: 24.8333, lon: 92.7789 },
+{ name: 'Dehradun', lat: 30.3165, lon: 78.0322 },
+{ name: 'Jaipur', lat: 26.9124, lon: 75.7873 },
+{ name: 'Dibrugarh', lat: 27.4728, lon: 94.9120 },
+{ name: 'Amritsar', lat: 31.6340, lon: 74.8723 },
+{ name: 'Ludhiana', lat: 30.9010, lon: 75.8573 },
+{ name: 'Amaravati', lat: 16.5130, lon: 80.5181 },
+{ name: 'Kolkata', lat: 22.5726, lon: 88.3639 },
+{ name: 'Raipur', lat: 21.2514, lon: 81.6296 },
+{ name: 'Patiala', lat: 30.3398, lon: 76.3869 },
+{ name: 'Patna', lat: 25.5941, lon: 85.1376 },
+{ name: 'Lucknow', lat: 26.8467, lon: 80.9462 },
+{ name: 'Kanpur', lat: 26.4499, lon: 80.3319 },
+{ name: 'Agra', lat: 27.1767, lon: 78.0081 },
+{ name: 'Varanasi', lat: 25.3176, lon: 82.9739 },
+{ name: 'Prayagraj (Allahabad)', lat: 25.4358, lon: 81.8463 },
+{ name: 'Ghaziabad', lat: 28.6692, lon: 77.4538 },
+{ name: 'Noida', lat: 28.5355, lon: 77.3910 },
+{ name: 'Meerut', lat: 28.9845, lon: 77.7064 }
         // Add more coordinates to match the image
     ];
 
@@ -208,7 +226,7 @@ const IndiaMap = () => {
                     lon: coord.lon
                 })),
                 marker: {
-                    radius: 5,
+                    radius: 3,
                     fillColor: '#FFEB3B',
                     lineWidth: 1,
                     lineColor: '#FFF'

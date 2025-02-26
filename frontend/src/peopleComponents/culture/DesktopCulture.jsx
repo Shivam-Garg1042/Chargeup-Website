@@ -3,6 +3,8 @@ import testimony1 from "../../assets/teamPhoto1.webp";
 import testimony2 from "../../assets/teamPhoto2.png";
 import testimony3 from "../../assets/teamPhoto1.webp";
 import testimony4 from "../../assets/teamPhoto2.png";
+import background from "../../assets/aesthetic_collage.jpg";
+
 
 const DesktopCulture = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,7 +35,7 @@ const DesktopCulture = () => {
       <div className="absolute top-0 left-0 w-full h-full">
         <img
           className="absolute top-0 left-0 w-full h-full object-fit"
-          src="src\assets\aesthetic_collage.jpg"
+          src={background}
           alt="Background Image"
         />
         {/* Dark overlay for blackish effect - adjusted opacity for better look */}

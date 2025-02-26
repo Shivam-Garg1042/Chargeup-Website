@@ -8,7 +8,7 @@ const partnershipSteps = [
   {
     id: 1,
     title: "Select your geography",
-    description: "Select your area where you want to do business with Chargeup",
+    description: "Select the area where you want to do business with Chargeup",
     image: image1
   },
   {
@@ -233,10 +233,6 @@ export default function ScrollComponent() {
   // Desktop view component
   return (
     <div ref={componentRef} className="relative scroll-component h-screen bg-gray-50">
-      <div className="absolute top-0 left-0 right-0 pt-16 text-center z-10">
-        <h1 className="text-4xl font-bold mb-3 text-gray-900">Become a Chargeup Partner today</h1>
-        <p className="text-xl text-gray-600">In 4 simple steps</p>
-      </div>
       
       <div className="relative w-full h-screen overflow-hidden">
         <div className="flex w-full h-full">
@@ -265,6 +261,10 @@ export default function ScrollComponent() {
 
           {/* Right Side Content */}
           <div className="w-1/2 min-h-screen px-10 py-24 flex items-center">
+          <div className="absolute top-0 p-2 text-center">
+            <h1 className="text-4xl font-bold mb-3 text-gray-900">Become a Chargeup Partner today</h1>
+            <p className="text-xl text-gray-600">In 4 simple steps</p>
+          </div>
             <div className="w-full max-w-xl mx-auto">
               <div className="flex flex-col space-y-12">
                 {partnershipSteps.map((section) => (
