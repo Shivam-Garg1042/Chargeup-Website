@@ -29,24 +29,24 @@ const DesktopCulture = () => {
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full  object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="../../assets/background-video.mp4" type="video/mp4" />
-      </video>
+      {/* Background Image without Blur */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <img
+          className="absolute top-0 left-0 w-full h-full object-fit"
+          src="src\assets\aesthetic_collage.jpg"
+          alt="Background Image"
+        />
+        {/* Dark overlay for blackish effect - adjusted opacity for better look */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
+      </div>
 
-      {/* Overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#2E5077]/30 to-transparent" />
 
       {/* Content Container */}
-      <div className="relative  z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-4">
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-4">
         {/* Mission Title */}
-        <h1 className="text-[#003444] text-2xl md:text-4xl lg:text-5xl font-bold mb-12 text-center">
+        <h1 className="text-[#FFFFFF] text-2xl md:text-4xl lg:text-5xl font-bold mb-12 text-center">
           Culture at Chargeup
         </h1>
 

@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import  { useRef } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import { useScroll } from '@use-gesture/react';
 import { ChevronRight } from 'lucide-react';
-import bgImage from "../../assets/1.png";
+import bgImage from "../../assets/oem1.png";
 
 const DesktopGallery = ({ items }) => {
   const distributeItems = (items) => {
@@ -18,6 +18,7 @@ const DesktopGallery = ({ items }) => {
 
   const { row1, row2, row3 } = distributeItems(items);
 
+  // Revert back to original clamp function
   const clamp = (value, clampAt = 30) => {
     if (Math.abs(value) < 0.1) return 0;
     const amplifiedValue = value * 1.2;
@@ -53,20 +54,22 @@ const DesktopGallery = ({ items }) => {
   const Row = ({ items, label, color, style, setStyle }) => {
     const scrollContainerRef = useRef(null);
     
-    const bind = useScroll(({ delta: [deltaX], scrolling }) => {
-      if (Math.abs(deltaX) > 0) {
-        setStyle({
-          transform: `perspective(800px) rotateY(${scrolling ? clamp(deltaX) : 0}deg)`
-        });
-      }
+    // Simplified scroll binding for smoother animation
+    const bind = useScroll(({ delta: [deltaX] }) => {
+      setStyle({
+        transform: `perspective(800px) rotateY(${clamp(deltaX)}deg)`,
+        config: { mass: 1, tension: 180, friction: 20 }
+      });
+    }, {
+      filterTaps: true,
+      from: () => [0, 0],
     });
 
     const scroll = () => {
       if (scrollContainerRef.current) {
         const container = scrollContainerRef.current;
-        // Calculate the width of a single card including gap
         const cardWidth = container.querySelector('[data-card]').offsetWidth;
-        const gap = 24; // equivalent to space-x-6 (1.5rem = 24px)
+        const gap = 24;
         container.scrollBy({ 
           left: cardWidth + gap, 
           behavior: 'smooth' 
@@ -126,42 +129,38 @@ const DesktopGallery = ({ items }) => {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Main container with background image */}
       <div 
         className="w-full relative"
         style={{
           backgroundImage: `url(${bgImage})`,
-          backgroundSize: '120%', // Zoomed out to 120%
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Background overlay */}
         <div className="absolute inset-0 bg-black/30" />
-        
-        {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
         
-        {/* Content container */}
         <div className="relative w-full">
           <div className="max-w-7xl mx-auto py-6 sm:py-8 space-y-12">
             <Row 
               items={row1} 
-              label="Featured" 
+              label="Driver partner" 
               color="bg-blue-400" 
               style={style1}
               setStyle={set1}
             />
             <Row 
               items={row2} 
-              label="Popular" 
+              label="Dealer partner" 
               color="bg-purple-400"
               style={style2}
               setStyle={set2}
             />
             <Row 
               items={row3} 
-              label="New" 
+              label="Business partner" 
               color="bg-green-400"
               style={style3}
               setStyle={set3}
@@ -185,4 +184,4 @@ const DesktopGallery = ({ items }) => {
   );
 };
 
-export default DesktopGallery;
+export default DesktopGallery

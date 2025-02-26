@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import careerImage from '../../assets/1.png';
+// import careerImage from '../../assets/1.png';
 
 const DepartmentItem = ({ title, isActive, onClick, jobRoles }) => (
   <div className="mb-4">

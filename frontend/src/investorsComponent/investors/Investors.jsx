@@ -8,22 +8,28 @@ const InvestorsSection = () => {
       id: 1,
       name: "Capital-A",
       logo: investor1,
-      description: "Early-stage venture capital firm focused on technology startups",
-      yearJoined: "2022"
+      description: "A venture fund for seed to early stage meaningful startups",
+      yearJoined: "2021",
+      link:"https://www.capital-a.in/about-us"
+      
     },
     {
       id: 2,
       name: "Anicut",
       logo: investor3,
-      description: "Leading investment firm specializing in growth capital",
-      yearJoined: "2021"
+      description: "Helping entrepreneurs craft businesses with game-changing potential",
+      yearJoined: "2021",
+      link:"https://www.anicutcapital.com/about-us"
+      
     },
     {
       id: 3,
       name: "MapmyIndia",
       logo: investor2,
       description: "India's leading digital mapping company",
-      yearJoined: "2023"
+      yearJoined: "2021",
+      link:"https://www.mapmyindia.com/"
+      
     }
   ];
 
@@ -53,35 +59,51 @@ const InvestorsSection = () => {
                 hover:shadow-xl
               `}>
                 <div className="h-32 flex items-center justify-center mb-4 relative">
+                
                   <div className={`
                     absolute inset-0 bg-gradient-to-b from-transparent to-gray-50/10
                     opacity-0 group-hover:opacity-100 transition-opacity duration-300
                   `}></div>
+                  
                   <img
                     src={investor.logo}
                     alt={`${investor.name} logo`}
                     className="max-h-full max-w-full object-contain transform transition-transform duration-300 group-hover:-translate-y-1"
                   />
+                  
                 </div>
-                
+                <a 
+                    href={investor.link} 
+                    target="_blank" 
+                    
+                    
+                  >
                 <div className={`
                   text-center opacity-0 max-h-0 overflow-hidden transition-all duration-300
                   ${hoveredId === investor.id ? 'opacity-100 max-h-40' : ''}
                 `}>
-                  <p className="text-gray-600 text-sm mt-4">{investor.description}</p>
+                  <p className="text-gray-600 text-sm mt-4">
+                  
+                    {investor.description}
+                  
+                  </p>
                   <p className="text-emerald-600 text-sm font-medium mt-2">
                     Partner since {investor.yearJoined}
                   </p>
                 </div>
+                </a>
+               
               </div>
+              
             </div>
+            
           </div>
         ))}
       </div>
 
       <div className="mt-16 text-center">
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Backed by leading investors who share our vision of revolutionizing sustainable mobility solutions across India.
+        Backed by leading investors who shares our vision of enabling drivers with higher earnings through easy EV ownership 
         </p>
       </div>
     </section>

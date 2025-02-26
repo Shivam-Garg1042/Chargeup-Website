@@ -1,6 +1,6 @@
 
-import visionImage from "../../assets/1.png";
-import missionImage from "../../assets/4.png";
+import visionImage from "../../assets/oem1.png";
+import missionImage from "../../assets/oem1.png";
 import  { useState } from 'react';
 
 const SidebarItem = ({ title, isActive, onClick }) => (

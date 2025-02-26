@@ -62,23 +62,23 @@ const Commandments = () => {
   const [activeValue, setActiveValue] = useState(null);
 
   const values = [
-    { number: 1, title: "Deliver" },
-    { number: 2, title: "Embrace and Drive " },
-    { number: 3, title: "Fun and A Little Weirdness" },
-    { number: 4, title: "Be Adventurous, Creative, and Open-Minded" },
-    { number: 5, title: "Pursue Growth and Learning" },
-    { number: 6, title: "Build Open and Honest Relationships" },
-    { number: 7, title: "Build a Positive Team Spirit" },
-    { number: 8, title: "Do More With Less" },
-    { number: 9, title: "Be Passionate and Determined" },
-    { number: 10, title: "Be Humble" }
+    { number: 1, title: "Drivers are the centre of every decision we make" },
+    { number: 2, title: "Ask don’t Assume" },
+    { number: 3, title: "Top line is vanity, bottom line is sanity, Cash is reality" },
+    { number: 4, title: "We believe in T1 & L1, not either" },
+    { number: 5, title: "Let your love be greater than your fear, driving your Returns on Risk" },
+    { number: 6, title: "We just don’t believe in miracles, but make it happen" },
+    { number: 7, title: "Working long, hard and smart, you cant choose any two" },
+    { number: 8, title: "Your job isn’t done, until the job is done" },
+    { number: 9, title: "We are into the business of Growth, Fun & Care" },
+    { number: 10, title: "Play for India and not for any individual" }
   ];
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] py-12 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1B2B2D] text-center mb-12">
-          Our Core Values
+        <h2 className="text-3xl md:text-4xl font-bold text-[#003444] text-center mb-12">
+          Chargeup Commandments
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative">
@@ -119,3 +119,14 @@ const Commandments = () => {
 };
 
 export default Commandments;
+
+
+ 
+
+
+
+
+
+
+
+

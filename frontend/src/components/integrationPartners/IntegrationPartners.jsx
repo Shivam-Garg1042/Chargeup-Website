@@ -1,17 +1,30 @@
 
 import Marquee from "react-fast-marquee";
 import { Card } from '../../components/ui/card';
+import insurer1 from '../../assets/insurer1.png';
+import insurer2 from '../../assets/insurer2.png';
+import nbfc1 from "../../assets/nbfc1.png";
+import nbfc2 from "../../assets/nbfc2.png";
+import nbfc3 from "../../assets/nbfc3.png";
+import nbfc4 from "../../assets/nbfc4.png";
+import nbfc5 from "../../assets/nbfc5.png";
+import recycler1 from "../../assets/recycler1.png";
+import recycler2 from "../../assets/recycler2.png";
+import oem1 from "../../assets/oem1.png";
+import oem2 from "../../assets/oem2.png";
+import oem3 from "../../assets/oem3.png";
+import techpartner1 from "../../assets/techpartner1.png";
 
 const IntegrationPartners = () => {
   return (
     <section className="py-12 px-4 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="max-w-full mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-blue-900 mb-4">
-            Driver Focused Partners
+          <h2 className="text-4xl font-bold text-[#003444] text-900 mb-4">
+          Our Business Partners
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Empowering drivers with innovative solutions
+           Providing bundled offering to drivers via Chargeup Platform
           </p>
         </div>
         <div className="space-y-8">
@@ -72,31 +85,33 @@ const integrationData = [
   {
     id: 1,
     items: [
-      { id: 'miro1', name: "Miro", category: "NBFC", icon: "/api/placeholder/48/48" },
-      { id: 'twilio1', name: "Twilio", category: "NBFC", icon: "/api/placeholder/48/48" },
-      { id: 'slack1', name: "Slack", category: "NBFC", icon: "/api/placeholder/48/48" },
-      { id: 'zoom1', name: "Zoom", category: "NBFC", icon: "/api/placeholder/48/48" },
-      { id: 'notion1', name: "Notion", category: "NBFC", icon: "/api/placeholder/48/48" },
+      { id: 'Ascend', name: "Ascend", category: "NBFC", icon: nbfc1 },
+      { id: 'PDL', name: "PDL", category: "NBFC", icon: nbfc2 },
+      { id: 'Credit Fair', name: "Credit Fair", category: "NBFC", icon: nbfc3 },
+      { id: 'Shivakari Finance', name: "Shivakari Finance ", category: "NBFC", icon: nbfc4 },
+      { id: 'MegaCorp', name: "MegaCorp", category: "NBFC", icon: nbfc5 },
     ]
   },
   {
     id: 2,
     items: [
-      { id: 'zendesk1', name: "Zendesk", category: "Customer Support", icon: "/api/placeholder/48/48" },
-      { id: 'salesforce1', name: "Salesforce", category: "CRM", icon: "/api/placeholder/48/48" },
-      { id: 'box1', name: "Box", category: "File Management", icon: "/api/placeholder/48/48" },
-      { id: 'dropbox1', name: "Dropbox", category: "Storage", icon: "/api/placeholder/48/48" },
-      { id: 'asana1', name: "Asana", category: "Project Management", icon: "/api/placeholder/48/48" },
+      { id: 'Greenfuel', name: "Greenfuel", category: "Battery OEM", icon: oem3 },
+      { id: 'Piaggio', name: "Piaggio", category: "Vehicle OEM", icon: oem1 },
+      { id: 'Inverted', name: "Eastman", category: "Battery OEM", icon: oem2 },
+    
+      { id: 'Eastman', name: "Inverted", category: "Battery OEM", icon: oem2 },
     ]
   },
   {
     id: 3,
     items: [
-      { id: 'stripe1', name: "Stripe", category: "Payments", icon: "/api/placeholder/48/48" },
-      { id: 'gcal1', name: "Google Calendar", category: "Events", icon: "/api/placeholder/48/48" },
-      { id: 'gdrive1', name: "Google Drive", category: "File Management", icon: "/api/placeholder/48/48" },
-      { id: 'microsoft1', name: "Microsoft", category: "Productivity", icon: "/api/placeholder/48/48" },
-      { id: 'adobe1', name: "Adobe", category: "Creative", icon: "/api/placeholder/48/48" },
+      { id: 'Nunam', name: "Nunam", category: "Recycler", icon: recycler1 },
+      { id: 'SPA', name: "SPA", category: "Insurer", icon: insurer2 },
+      { id: 'Attero', name: "Attero", category: "Recycler", icon: recycler2 },
+      { id: 'Marsh', name: "Marsh", category: "Insurer", icon: insurer2 },
+      
+      { id: 'Microsoft', name: "Microsoft Founder's HUB", category: "Tech partners", icon: techpartner1 },
+      { id: 'Prudent', name: "Prudent", category: "Insurer", icon: insurer1 },
     ]
   }
 ];
