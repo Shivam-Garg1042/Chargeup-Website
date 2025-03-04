@@ -201,7 +201,7 @@ const Career = () => {
     <div className="min-h-screen bg-gray-50 py-6 px-4 md:py-12 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Join our Team</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Be a Charge(u)prenuer</h1>
           {/* <p className="text-base md:text-lg text-gray-600 max-w-6xl mx-auto">
             Select a department to explore open positions
           </p> */}

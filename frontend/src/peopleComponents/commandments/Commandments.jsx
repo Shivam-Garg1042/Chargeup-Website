@@ -18,7 +18,7 @@ const ValueCard = ({ number, title, isActive, onClick }) => (
       <div className={`
         w-16 h-16 rounded-full flex items-center justify-center
         text-2xl font-bold transition-all duration-300
-        ${isActive ? 'bg-white text-[#2C4A52]' : 'bg-[#A5C6CE] text-white'}
+        ${isActive ? 'bg-white text-[#2C4A52]' : 'bg-[#003444] text-white'}
       `}>
         {number}
       </div>

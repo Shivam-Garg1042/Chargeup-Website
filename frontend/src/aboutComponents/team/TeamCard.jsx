@@ -39,12 +39,28 @@ const TeamCard = ({ name, role, image, bio }) => {
         </div>
 
         {/* Back of card */}
-        <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-[#2D2F53] rounded-lg p-6">
-          <div className="text-white h-full flex flex-col justify-center">
-            <h3 className="text-xl font-bold mb-2">{name}</h3>
-            <p className="text-sm">{bio}</p>
+        <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-[#2D2F53] to-[#1E1F3A] rounded-lg p-6">
+          <div className="text-white h-full flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl font-bold mb-3">{name}</h3>
+              <p className="text-sm mb-4 leading-relaxed">{bio}</p>
+            </div>
+            
+            <div className="mt-auto">
+              <div className="border-t border-white/20 pt-4 flex justify-between items-center">
+                <span className="text-xs text-white/70">{role} at Chargeup</span>
+                <a 
+                  href={linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white hover:text-blue-300 transition-colors duration-300"
+                >
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+          </div>
       </motion.div>
     </div>
   );

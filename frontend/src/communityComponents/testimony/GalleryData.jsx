@@ -1,5 +1,5 @@
-import drivertesti1 from "../../assets/drivertesti1.png";
-import drivertesti2 from "../../assets/drivertesti2.png";
+import drivertesti1 from "../../assets/drivertesti1.jpg";
+import drivertesti2 from "../../assets/drivertesti2.jpg";
 
 
 export const galleryItems = [

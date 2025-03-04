@@ -41,7 +41,7 @@ const TestimonialSlider = () => {
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-gray-900 leading-tight">
             Hear what our
-            <span className="block text-blue-600">customers are saying</span>
+            <span className="block text-[#4da1a9] ">customers are saying</span>
           </h2>
         </div>
         <div className="flex items-center justify-center gap-4 mb-6">
@@ -101,7 +101,7 @@ const TestimonialSlider = () => {
         <div className="w-1/3">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             Hear what our
-            <span className="block text-blue-600">customers are saying</span>
+            <span className="block text-[#4da1a9] ">customers are saying</span>
           </h2>
           <div className="flex items-center gap-4 mb-8 my-20">
             <div className="text-lg">

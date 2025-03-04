@@ -102,7 +102,7 @@ const InvestorsSection = () => {
       </div>
 
       <div className="mt-16 text-center">
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
         Backed by leading investors who shares our vision of enabling drivers with higher earnings through easy EV ownership 
         </p>
       </div>

@@ -1,7 +1,4 @@
 
-
-
-
 import { useRef, useState, useEffect } from 'react';
 import { newsData } from './NewsData';
 import NewsCard from './NewsCard';
@@ -39,7 +36,15 @@ const NewsSection = () => {
 
   return (
     <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto relative"> {/* Added relative here */}
-  <h2 className="text-4xl font-bold text-center mb-12">Chargeup in the News</h2>
+ <div className="text-center mb-16">
+  <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
+    <span className="relative">
+      Chargeup
+      <div className="absolute -bottom-3 left-0 w-full h-1 bg-emerald-500 rounded-full"></div>
+    </span>
+    <span> in the News</span>
+  </h2>
+</div>
   <div
     className={`flex gap-6 overflow-x-auto space-x-4 scrollbar-hide snap-x snap-mandatory relative ${isMobile ? '' : 'overflow-hidden'}`}
     ref={scrollRef}
@@ -102,9 +107,3 @@ const NewsSection = () => {
 };
 
 export default NewsSection;
-
-
-
-
-
-

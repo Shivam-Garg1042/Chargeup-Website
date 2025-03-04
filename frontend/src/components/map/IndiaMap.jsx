@@ -101,7 +101,22 @@ const IndiaMap = () => {
 { name: 'Meerut', lat: 28.9845, lon: 77.7064 }
         // Add more coordinates to match the image
     ];
-
+    const stateNameMapping = {
+        'uttar pradesh': 'UP',
+        'madhya pradesh': 'MP',
+        'nct of delhi': 'Delhi',
+        'rajasthan': 'Raj',
+        'haryana': 'Har',
+        'uttarakhand': 'UK',
+        'punjab': 'Pun',
+        'bihar': 'Bih',
+        'west bengal': 'WB',
+        'chhattisgarh': 'CG',
+        'jammu and kashmir': 'J&K',
+        'jharkhand': 'Jhar',
+        'assam': 'As',
+        'andhra pradesh': 'AP'
+      };
     // States data - match colors with image
     const data = [
         // Currently Live (dark blue/navy)
@@ -204,7 +219,12 @@ const IndiaMap = () => {
                 },
                 dataLabels: {
                     enabled: true,
-                    format: "{point.name}",
+                    // format: "{point.name}",
+                    formatter: function() {
+                        const key = this.point['hc-key'];
+                        // Optional: console.log(key) to debug what values are coming in
+                        return stateNameMapping[key] || this.point.name;
+                    },
                     style: {
                         textOutline: 'none',
                         fontWeight: 'normal',
@@ -230,6 +250,9 @@ const IndiaMap = () => {
                     fillColor: '#FFEB3B',
                     lineWidth: 1,
                     lineColor: '#FFF'
+                },
+                dataLabels:{
+                    enabled: false,
                 }
             }
         ]

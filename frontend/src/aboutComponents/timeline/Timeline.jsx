@@ -1,523 +1,321 @@
-// import React, { useEffect, useState, useRef } from 'react';
 
-// const TimelineSlider = () => {
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const [vehiclePosition, setVehiclePosition] = useState(0);
-//   const [isMobile, setIsMobile] = useState(false);
-//   const [visibleCards, setVisibleCards] = useState(new Set());
-//   const containerRef = useRef(null);
-//   const cardRefs = useRef([]);
+import  { useRef, useEffect, useState } from 'react';
 
-//   const timelineEvents = [
-//     {
-//       year: '2019',
-//       title: 'Incorporation Year',
-//       description: 'Incorporation year, with 1st station opening in May 2019 in Delhi',
-//       color: 'bg-[#D0DDD0]',
-//       textColor: 'text-emerald-800'
-//     },
-//     {
-//       year: '2020',
-//       title: 'Expansion Started',
-//       description: 'Expansion started, with opening new stores in asset lite model',
-//       color: 'bg-[#F0F0D7]',
-//       textColor: 'text-orange-800'
-//     },
-//     {
-//       year: '2021',
-//       title: 'Marked Drivers',
-//       description: 'Marked 1000 drivers in our community network with 85 stations',
-//       color: 'bg-[#D0DDD0]',
-//       textColor: 'text-emerald-800'
-//     },
-//     {
-//       year: '2022',
-//       title: 'Recognized as EV Startup',
-//       description: 'Recognized as EV startup of the year',
-//       color: 'bg-[#F0F0D7]',
-//       textColor: 'text-orange-800'
-//     },
-//     {
-//       year: '2023',
-//       title: 'Growth in Revenue',
-//       description: '8x Growth in Revenue since 2021, across 13 new cities from 4000 drivers',
-//       color: 'bg-[#D0DDD0]',
-//       textColor: 'text-emerald-800'
-//     }
-//   ];
+const VerticalTimeline = () => {
+  const [activeIndices, setActiveIndices] = useState([]);
+  const [visibleLineHeight, setVisibleLineHeight] = useState(0);
+  const timelineRef = useRef(null);
+  const itemRefs = useRef([]);
 
-//   useEffect(() => {
-//     const checkMobile = () => {
-//       setIsMobile(window.innerWidth < 768);
-//     };
-
-//     checkMobile();
-//     window.addEventListener('resize', checkMobile);
-//     return () => window.removeEventListener('resize', checkMobile);
-//   }, []);
-
-//   useEffect(() => {
-//     cardRefs.current = cardRefs.current.slice(0, timelineEvents.length);
-//   }, [timelineEvents]);
-
-//   useEffect(() => {
-//     const container = containerRef.current;
-//     if (!container) return;
-
-//     const handleScroll = () => {
-//       const scrollPosition = container.scrollTop;
-//       const maxScroll = container.scrollHeight - container.clientHeight;
-      
-//       // Handle vehicle position for desktop view
-//       if (!isMobile) {
-//         const firstCardOffset = 100;
-//         const lastCardOffset = container.scrollHeight - 260;
-//         const totalTravelDistance = lastCardOffset - firstCardOffset;
-//         const scrollProgress = Math.max(0, Math.min(1, scrollPosition / maxScroll));
-//         const newVehiclePosition = firstCardOffset + (totalTravelDistance * scrollProgress);
-//         setVehiclePosition(newVehiclePosition);
-//       }
-
-//       // Handle active index and card visibility
-//       const newActiveIndex = Math.min(
-//         Math.floor((scrollPosition / maxScroll) * timelineEvents.length),
-//         timelineEvents.length - 1
-//       );
-//       setActiveIndex(newActiveIndex);
-
-//       // Check card visibility for mobile animations
-//       if (isMobile) {
-//         const newVisibleCards = new Set(visibleCards);
-//         cardRefs.current.forEach((card, index) => {
-//           if (card && isElementInViewport(card)) {
-//             newVisibleCards.add(index);
-//           }
-//         });
-//         setVisibleCards(newVisibleCards);
-//       }
-//     };
-
-//     const isElementInViewport = (el) => {
-//       const rect = el.getBoundingClientRect();
-//       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-//       return rect.top <= windowHeight * 0.8 && rect.bottom >= windowHeight * 0.2;
-//     };
-
-//     container.addEventListener('scroll', handleScroll);
-//     // Initial check for visible cards
-//     handleScroll();
-//     return () => container.removeEventListener('scroll', handleScroll);
-//   }, [isMobile, visibleCards]);
-
-//   const cardHeight = isMobile ? 300 : 400;
-//   const totalHeight = timelineEvents.length * cardHeight;
-
-//   return (
-//     <div 
-//       className="relative" 
-//       style={{
-//         background: 'linear-gradient(135deg, #278c6a 0%, #003444 100%)'
-//       }}
-//     >
-//       <h1 className="text-4xl md:text-8xl font-bold text-center py-4 text-white">Our Journey</h1>
-//       <p className="journey-subtitle text-lg md:text-xl mb-4 text-center text-white opacity-80">
-//     Milestones that shaped our success
-//     </p>
-    
-//       <div 
-//         ref={containerRef}
-//         className="relative h-[600px] overflow-y-auto scrollbar-hide"
-//         style={{
-//           // background: 'linear-gradient(135deg, #55883B 0%, #C1E899 35%, #9A6735 100%)',
-//           msOverflowStyle: 'none',
-//           scrollbarWidth: 'none'
-//         }}
-//       >
-//         <style>
-//           {`
-//             .scrollbar-hide::-webkit-scrollbar {
-//               display: none;
-//             }
-//             .mobile-card {
-//               opacity: 0;
-//               transform: translateX(var(--slide-from, 0));
-//               transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-//             }
-//             .mobile-card.visible {
-//               opacity: 1;
-//               transform: translateX(0);
-//             }
-//           `}
-//         </style>
-        
-//         <div style={{ height: `${totalHeight}px` }} className="relative">
-//         {!isMobile && ( <div className="absolute left-1/2 top-0 -ml-16 md:w-32 w-4" style={{ height: `${totalHeight}px` }}>
-//             <div className="absolute inset-0 bg-gray-900" />
-//             <div className="absolute left-1 md:left-2 top-0 w-0.5 h-full bg-white" />
-//             <div className="absolute right-1 md:right-2 top-0 w-0.5 h-full bg-white" />
-//             <div 
-//               className="absolute left-1/2 top-0 w-1 -ml-0.5" 
-//               style={{ 
-//                 height: `${totalHeight}px`,
-//                 background: 'repeating-linear-gradient(to bottom, #FCD34D 0, #FCD34D 20px, transparent 20px, transparent 40px)'
-//               }} 
-//             />
-//           </div>
-//         )}
-
-//           {!isMobile && (
-//             <div 
-//               className="absolute left-1/2 z-10"
-//               style={{ 
-//                 top: vehiclePosition,
-//                 transform: 'translateX(-50%)',
-//                 transition: 'top 0.1s ease-out'
-//               }}
-//             >
-//               <svg 
-//                 width="80" 
-//                 height="160" 
-//                 viewBox="0 0 80 160" 
-//                 fill="none" 
-//                 xmlns="http://www.w3.org/2000/svg"
-//               >
-//                 <rect x="10" y="10" width="60" height="100" rx="15" fill="#0AAD2A" stroke="#087F1A" strokeWidth="3" />
-//                 <ellipse cx="40" cy="30" rx="15" ry="10" fill="#0C3C26" />
-//                 <line x1="30" y1="20" x2="50" y2="20" stroke="black" strokeWidth="3" />
-//                 <circle cx="25" cy="18" r="3" fill="black" />
-//                 <circle cx="55" cy="18" r="3" fill="black" />
-//                 <circle cx="20" cy="15" r="4" fill="#F35A4A" />
-//                 <circle cx="60" cy="15" r="4" fill="#F35A4A" />
-//                 <rect x="20" y="50" width="40" height="35" fill="#F7934C" rx="5" />
-//                 <rect x="25" y="95" width="30" height="15" fill="#F35A4A" rx="3" />
-//                 <line x1="25" y1="100" x2="55" y2="100" stroke="black" strokeWidth="2" />
-//                 <rect x="28" y="115" width="24" height="10" fill="#222" rx="3" />
-//                 <circle cx="40" cy="150" r="6" fill="#1F2937" />
-//                 <path d="M30 145 Q40 135 50 145" fill="#087F1A" stroke="#06661A" strokeWidth="2" />
-//                 <path 
-//                   d="M10 150 Q40 100 70 150" 
-//                   stroke="rgba(0,0,0,0.3)" 
-//                   strokeWidth="3" 
-//                   strokeDasharray="5,5"
-//                   fill="none"
-//                 />
-//               </svg>
-//             </div>
-//           )}
-          
-//           <div className="relative mx-auto">
-//             {timelineEvents.map((event, index) => (
-//               <div
-//                 key={event.year}
-//                 className={`
-//                   ${isMobile ? 'h-[300px]' : 'h-[400px]'} 
-//                   flex items-center 
-//                   ${isMobile 
-//                     ? index % 2 === 0 
-//                       ? 'justify-center' 
-//                       : 'justify-center'
-//                     : index % 2 === 0 
-//                       ? 'justify-end pr-16' 
-//                       : 'justify-start pl-16'
-//                   }
-//                 `}
-//               >
-//                 <div
-//                   ref={el => cardRefs.current[index] = el}
-//                   className={`
-//                     ${isMobile ? 'w-[85vw] max-w-64' : 'w-96'} 
-//                     p-6 rounded-lg shadow-lg
-//                     transition-all duration-300
-//                     ${isMobile ? 'mobile-card' : ''}
-//                     ${isMobile && visibleCards.has(index) ? 'visible' : ''}
-//                     ${!isMobile && activeIndex === index ? 'scale-100 opacity-100' : 'scale-95 opacity-50'}
-//                     bg-gradient-to-br ${event.color}
-//                   `}
-//                   style={isMobile ? {
-//                     '--slide-from': `${index % 2 === 0 ? '100%' : '-100%'}`
-//                   } : {}}
-//                 >
-//                   <h3 className={`text-2xl font-bold ${event.textColor}`}>{event.year}</h3>
-//                   <h4 className={`text-xl font-semibold mt-2 ${event.textColor}`}>{event.title}</h4>
-//                   <p className={`mt-2 ${event.textColor} opacity-90`}>{event.description}</p>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TimelineSlider;
-
-
-
-
-
-
-
-
-
-
-import React, { useEffect, useState, useRef } from 'react';
-
-const TimelineSlider = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [vehiclePosition, setVehiclePosition] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [visibleCards, setVisibleCards] = useState(new Set());
-  const containerRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  const timelineEvents = [
+  // Timeline data
+  const milestones = [
     {
-      year: '2019',
-      title: 'Incorporation Year',
-      description: 'Incorporation year, with 1st station opening in May 2019 in Delhi',
-      color: 'bg-[#D0DDD0]',
-      textColor: 'text-emerald-800'
+      date: "May 2019",
+      achievements: [
+        { 
+          title: "1st", 
+          description: "BaaS station established in Delhi NCR",
+          color: "text-accent", 
+          highlight: true 
+        }
+      ],
+      icon: "🏢"
     },
     {
-      year: '2020',
-      title: 'Expansion Started',
-      description: 'Expansion started, with opening new stores in asset lite model',
-      color: 'bg-[#F0F0D7]',
-      textColor: 'text-orange-800'
+      date: "Sep 2021",
+      achievements: [
+        { 
+          title: "1000", 
+          description: "Chargeup drivers",
+          color: "text-accent", 
+          highlight: false 
+        }
+      ],
+      icon: "🛵"
     },
     {
-      year: '2021',
-      title: 'Marked Drivers',
-      description: 'Marked 1000 drivers in our community network with 85 stations',
-      color: 'bg-[#D0DDD0]',
-      textColor: 'text-emerald-800'
+      date: "Dec 2021",
+      achievements: [
+        { 
+          title: "$1 Mn", 
+          description: "Raised Seed Round", 
+          highlight: false,
+          logo: true 
+        }
+      ],
+      icon: "💰"
     },
     {
-      year: '2022',
-      title: 'Recognized as EV Startup',
-      description: 'Recognized as EV startup of the year',
-      color: 'bg-[#F0F0D7]',
-      textColor: 'text-orange-800'
+      date: "Jan 2022",
+      achievements: [
+        { 
+          title: "100", 
+          description: "Chargeup dealer partners",
+          color: "text-accent", 
+          highlight: false 
+        }
+      ],
+      icon: "🤝"
     },
     {
-      year: '2023',
-      title: 'Growth in Revenue',
-      description: '8x Growth in Revenue since 2021, across 13 new cities from 4000 drivers',
-      color: 'bg-[#D0DDD0]',
-      textColor: 'text-emerald-800'
+      date: "Sep 2022",
+      achievements: [
+        { 
+          title: "EV Startup of the Year", 
+          description: "Awarded by E Mobility",
+          highlight: true 
+        }
+      ],
+      icon: "🏆"
+    },
+    {
+      date: "Dec 2022",
+      achievements: [
+        { 
+          title: "$2.5 Mn", 
+          description: "Raised Pre-Series A",
+          highlight: false 
+        },
+        { 
+          title: "3000", 
+          description: "Chargeup drivers",
+          color: "text-accent", 
+          highlight: false 
+        }
+      ],
+      icon: "📈"
+    },
+    {
+      date: "May 2023",
+      achievements: [
+        { 
+          title: "Partnership", 
+          description: "with Ascend Capital (NBFC)",
+          highlight: false,
+          logo: true 
+        }
+      ],
+      icon: "🔄"
+    },
+    {
+      date: "Jan 2024",
+      achievements: [
+        { 
+          title: "15", 
+          description: "Cities",
+          color: "text-accent", 
+          highlight: true 
+        },
+        { 
+          title: "6800+", 
+          description: "Drivers reached",
+          color: "text-accent", 
+          highlight: false 
+        }
+      ],
+      icon: "🌆"
+    },
+    {
+      date: "Oct 2024",
+      achievements: [
+        { 
+          title: "14", 
+          description: "B2B Partnerships",
+          color: "text-accent", 
+          highlight: false 
+        },
+        { 
+          title: "₹380 Mn", 
+          description: "ARR",
+          color: "text-accent", 
+          highlight: true
+        }
+      ],
+      icon: "🚀"
     }
   ];
 
+  // Calculate how much of the timeline is visible
+  const updateLineProgress = () => {
+    if (!timelineRef.current) return;
+
+    const scrollPosition = window.scrollY;
+    const timelineTop = timelineRef.current.offsetTop;
+    const timelineHeight = timelineRef.current.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    // Calculate how far we've scrolled into the timeline
+    const scrollPercentage = Math.max(0, Math.min(1,
+      (scrollPosition + windowHeight - timelineTop) / (timelineHeight + windowHeight)
+    ));
+
+    setVisibleLineHeight(scrollPercentage * 100);
+  };
+
+  // Set up Intersection Observer to detect when timeline items come into view
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15, // Trigger when at least 15% of the item is visible
     };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.dataset.index);
 
-  useEffect(() => {
-    cardRefs.current = cardRefs.current.slice(0, timelineEvents.length);
-  }, [timelineEvents]);
-
-  // Throttled Scroll Handler
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const scrollPosition = container.scrollTop;
-    const maxScroll = container.scrollHeight - container.clientHeight;
-
-    // Handle vehicle position for desktop view
-    if (!isMobile) {
-      const firstCardOffset = 100;
-      const lastCardOffset = container.scrollHeight - 260;
-      const totalTravelDistance = lastCardOffset - firstCardOffset;
-      const scrollProgress = Math.max(0, Math.min(1, scrollPosition / maxScroll));
-      const newVehiclePosition = firstCardOffset + (totalTravelDistance * scrollProgress);
-      setVehiclePosition(newVehiclePosition);
-    }
-
-    // Handle active index
-    const newActiveIndex = Math.min(
-      Math.floor((scrollPosition / maxScroll) * timelineEvents.length),
-      timelineEvents.length - 1
-    );
-    setActiveIndex(newActiveIndex);
-
-    // Handle card visibility for mobile
-    if (isMobile) {
-      const newVisibleCards = new Set(visibleCards);
-      cardRefs.current.forEach((card, index) => {
-        if (card && isElementInViewport(card)) {
-          newVisibleCards.add(index);
+        if (entry.isIntersecting) {
+          setActiveIndices(prev => Array.from(new Set([...prev, index])));
         }
       });
-
-      // Only update visibleCards if it has changed
-      if (newVisibleCards.size !== visibleCards.size) {
-        setVisibleCards(newVisibleCards);
-      }
-    }
-  };
-
-  const isElementInViewport = (el) => {
-    const rect = el.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    return rect.top <= windowHeight * 0.8 && rect.bottom >= windowHeight * 0.2;
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      requestAnimationFrame(handleScroll); // Throttle the scroll event handler
     };
 
-    container.addEventListener('scroll', onScroll);
-    return () => container.removeEventListener('scroll', onScroll);
-  }, [isMobile, visibleCards]);
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  const cardHeight = isMobile ? 300 : 400;
-  const totalHeight = timelineEvents.length * cardHeight;
+    itemRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    // Add scroll event listener for timeline progress
+    window.addEventListener('scroll', updateLineProgress);
+    window.addEventListener('resize', updateLineProgress);
+
+    // Initial update
+    updateLineProgress();
+
+    return () => {
+      itemRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+      window.removeEventListener('scroll', updateLineProgress);
+      window.removeEventListener('resize', updateLineProgress);
+    };
+  }, []);
+
+  // Determine if item is active (has been scrolled into view)
+  const isActive = (index) => activeIndices.includes(index);
 
   return (
     <div 
-      className="relative" 
-      style={{
-        background: 'linear-gradient(135deg, #727D73 0%, #AAB99A 100%)'
-      }}
+      className="w-full bg-gradient-to-b from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      ref={timelineRef}
     >
-      <h1 className="text-4xl md:text-8xl font-bold text-center py-4 text-white">Our Journey</h1>
-      <p className="journey-subtitle text-lg md:text-xl mb-4 text-center text-white opacity-80">
-        Milestones that shaped our success
-      </p>
-      
-      <div 
-        ref={containerRef}
-        className="relative h-[600px] overflow-y-auto scrollbar-hide"
-        style={{
-          msOverflowStyle: 'none',
-          scrollbarWidth: 'none'
-        }}
-      >
-        <style>
-          {`
-            .scrollbar-hide::-webkit-scrollbar {
-              display: none;
-            }
-            .mobile-card {
-              opacity: 0;
-              transform: translateX(var(--slide-from, 0));
-              transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-            .mobile-card.visible {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          `}
-        </style>
-        
-        <div style={{ height: `${totalHeight}px` }} className="relative">
-          {!isMobile && (
-            <div className="absolute left-1/2 top-0 -ml-16 md:w-32 w-4" style={{ height: `${totalHeight}px` }}>
-              <div className="absolute inset-0 bg-gray-900" />
-              <div className="absolute left-1 md:left-2 top-0 w-0.5 h-full bg-white" />
-              <div className="absolute right-1 md:right-2 top-0 w-0.5 h-full bg-white" />
-              <div 
-                className="absolute left-1/2 top-0 w-1 -ml-0.5" 
-                style={{ 
-                  height: `${totalHeight}px`,
-                  background: 'repeating-linear-gradient(to bottom, #FCD34D 0, #FCD34D 20px, transparent 20px, transparent 40px)' 
-                }} 
-              />
-            </div>
-          )}
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-3xl md:text-5xl font-bold text-center text-primary mb-12 tracking-tight">
+          Chargeup's <span className="text-accent">Journey</span>
+        </h1>
 
-          {/* Vehicle animation */}
-          {!isMobile && (
-            <div 
-              className="absolute left-1/2 z-10"
-              style={{ 
-                top: vehiclePosition,
-                transform: 'translateX(-50%)',
-                transition: 'top 0.1s ease-out'
-              }}
-            >
-              {/* Updated SVG for the vehicle */}
-              <svg 
-                width="80" 
-                height="160" 
-                viewBox="0 0 80 160" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="10" y="10" width="60" height="100" rx="15" fill="#0AAD2A" stroke="#087F1A" strokeWidth="3" />
-                <ellipse cx="40" cy="30" rx="15" ry="10" fill="#0C3C26" />
-                <line x1="30" y1="20" x2="50" y2="20" stroke="black" strokeWidth="3" />
-                <circle cx="25" cy="18" r="3" fill="black" />
-                <circle cx="55" cy="18" r="3" fill="black" />
-                <circle cx="20" cy="15" r="4" fill="#F35A4A" />
-                <circle cx="60" cy="15" r="4" fill="#F35A4A" />
-                <rect x="20" y="50" width="40" height="35" fill="#F7934C" rx="5" />
-                <rect x="25" y="95" width="30" height="15" fill="#F35A4A" rx="3" />
-                <line x1="25" y1="100" x2="55" y2="100" stroke="black" strokeWidth="2" />
-                <rect x="28" y="115" width="24" height="10" fill="#222" rx="3" />
-                <circle cx="40" cy="150" r="6" fill="#1F2937" />
-                <path d="M30 145 Q40 135 50 145" fill="#087F1A" stroke="#06661A" strokeWidth="2" />
-                <path 
-                  d="M10 150 Q40 100 70 150" 
-                  stroke="rgba(0,0,0,0.3)" 
-                  strokeWidth="3" 
-                  strokeDasharray="5,5"
-                  fill="none"
-                />
-              </svg>
-            </div>
-          )}
+        <div className="relative">
+          {/* Timeline static line (background) */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gray-200 rounded-full transform md:-translate-x-px"></div>
 
-          <div className="relative mx-auto">
-            {timelineEvents.map((event, index) => (
+          {/* Timeline dynamic line (foreground - changes with scroll) */}
+          <div
+            className="absolute left-6 md:left-1/2 top-0 w-1 bg-gradient-to-b from-secondary via-accent to-primary rounded-full transform md:-translate-x-px transition-all duration-300 ease-out"
+            style={{ height: `${visibleLineHeight}%` }}
+          ></div>
+
+          <div className="space-y-16 md:space-y-24">
+            {milestones.map((milestone, index) => (
               <div
-                key={event.year}
-                className={`
-                  ${isMobile ? 'h-[300px]' : 'h-[400px]'} 
-                  flex items-center 
-                  ${isMobile 
-                    ? index % 2 === 0 
-                      ? 'justify-center' 
-                      : 'justify-center'
-                    : index % 2 === 0 
-                      ? 'justify-end pr-16' 
-                      : 'justify-start pl-16'
-                  }
+                key={index}
+                ref={el => itemRefs.current[index] = el}
+                data-index={index}
+                className={`relative transition-all duration-700 ease-out
+                  ${isActive(index) ? 'opacity-100' : 'opacity-0'}
                 `}
               >
-                <div
-                  ref={el => cardRefs.current[index] = el}
-                  className={`
-                    ${isMobile ? 'w-[85vw] max-w-64' : 'w-96'} 
-                    p-6 rounded-lg shadow-lg
-                    transition-all duration-300
-                    ${isMobile ? 'mobile-card' : ''} 
-                    ${isMobile && visibleCards.has(index) ? 'visible' : ''}
-                    ${!isMobile && activeIndex === index ? 'scale-100 opacity-100' : 'scale-95 opacity-50'}
-                    bg-gradient-to-br ${event.color}
-                  `}
-                  style={isMobile ? {
-                    '--slide-from': `${index % 2 === 0 ? '100%' : '-100%'}` 
-                  } : {}}
-                >
-                  <h3 className={`text-2xl font-bold ${event.textColor}`}>{event.year}</h3>
-                  <h4 className={`text-xl font-semibold mt-2 ${event.textColor}`}>{event.title}</h4>
-                  <p className={`mt-2 ${event.textColor} opacity-90`}>{event.description}</p>
+                {/* Date bubble */}
+                <div className={`
+                  absolute top-0 left-6 md:left-1/2 transform -translate-x-1/2 
+                  bg-gradient-to-r from-secondary to-accent text-white font-bold 
+                  px-4 py-2 rounded-full shadow-lg z-10
+                  ${isActive(index) ? 'animate-pulse-once scale-100' : 'scale-90'}
+                  transition-transform duration-500
+                `}>
+                  {milestone.date}
+                </div>
+
+                {/* Content container */}
+                <div className={`
+                  relative ml-16 md:ml-0 pt-12
+                  ${index % 2 === 0 ? 'md:mr-[52%] md:pr-12' : 'md:ml-[52%] md:pl-12'}
+                  ${isActive(index) ?
+                    `${index % 2 === 0 ? 'animate-slide-from-left' : 'animate-slide-from-right'}` :
+                    ''}
+                `}>
+                  {/* Milestone icon */}
+                  <div className={`
+                    absolute top-10 -left-10 md:static md:float-${index % 2 === 0 ? 'right -mr-20' : 'left -ml-20'}
+                    w-12 h-12 flex items-center justify-center
+                    bg-white rounded-full shadow-md border-2 border-accent text-2xl z-10
+                    ${isActive(index) ? 'animate-bounce-once' : ''}
+                    transition-all duration-300 ease-out hover:scale-110
+                  `}>
+                    {milestone.icon}
+                  </div>
+
+                  {/* Card */}
+                  <div className={`
+                    bg-white p-5 rounded-xl shadow-xl border-l-4 border-accent
+                    transform transition-all duration-500 ease-out
+                    ${isActive(index) ? 'translate-y-0 rotate-0' :
+                      index % 2 === 0 ? 'translate-y-10 rotate-2' : 'translate-y-10 -rotate-2'}
+                    hover:shadow-2xl hover:scale-105
+                  `}>
+                    <div className="space-y-4">
+                      {milestone.achievements.map((achievement, achIndex) => (
+                        <div
+                          key={achIndex}
+                          className={`
+                            ${achievement.highlight ?
+                              'bg-gray-50 p-4 rounded-lg border-l-2 border-accent transform transition-all duration-300' : ''}
+                            ${isActive(index) && achievement.highlight ? 'animate-fade-in' : ''}
+                          `}
+                        >
+                          {achievement.logo && (
+                            <div className="w-20 h-12 bg-gray-100 rounded-lg mb-3 flex items-center justify-center text-xs text-gray-500 border border-gray-200">
+                              <span className="text-accent">Logo</span>
+                            </div>
+                          )}
+
+                          <div className={`font-bold text-2xl mb-1 ${achievement.color || 'text-primary'}`}>
+                            {achievement.title}
+                          </div>
+
+                          <div className="text-gray-600 text-lg">
+                            {achievement.description}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Connector dot */}
+                  <div className={`
+                    absolute top-0 left-6 md:left-1/2 w-6 h-6
+                    ${isActive(index) ? 'bg-accent' : 'bg-gray-300'} 
+                    border-3 border-white rounded-full shadow-md
+                    transform -translate-x-1/2
+                    z-10
+                    ${isActive(index) ? 'animate-ping-once scale-100' : 'scale-75'}
+                    transition-all duration-500
+                  `}></div>
                 </div>
               </div>
             ))}
+
+            {/* Final element - future indicator */}
+            <div className="relative mt-12">
+              <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 
+                bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center 
+                animate-pulse shadow-lg">
+                <span className="text-white text-xl">→</span>
+              </div>
+              <div className="ml-20 md:ml-[52%] text-gray-600 italic text-lg">
+                Future milestones coming soon...
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -525,4 +323,75 @@ const TimelineSlider = () => {
   );
 };
 
-export default TimelineSlider;
+// Add required animations
+const addAnimationStyles = () => {
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes bounceOnce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    
+    @keyframes pulseOnce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    
+    @keyframes pingOnce {
+      0% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, 0) scale(1.8); opacity: 0.5; }
+      100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+    }
+    
+    @keyframes slideFromLeft {
+      0% { transform: translateX(-40px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideFromRight {
+      0% { transform: translateX(40px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0.5; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    .animate-bounce-once {
+      animation: bounceOnce 1.2s ease-in-out;
+    }
+    
+    .animate-pulse-once {
+      animation: pulseOnce 1.2s ease-in-out;
+    }
+    
+    .animate-ping-once {
+      animation: pingOnce 1.5s ease-in-out;
+    }
+    
+    .animate-slide-from-left {
+      animation: slideFromLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-from-right {
+      animation: slideFromRight 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+  `;
+  document.head.appendChild(style);
+};
+
+// Component to wrap everything
+const ChargeupJourneyTimeline = () => {
+  useEffect(() => {
+    addAnimationStyles();
+  }, []);
+
+  return <VerticalTimeline />;
+};
+
+export default ChargeupJourneyTimeline;

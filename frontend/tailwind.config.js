@@ -1,21 +1,4 @@
-// tailwind.config.js
 
-
-// Light Neutrals (for soft backgrounds)
-
-// #F5F5F5 (Light Gray)
-// #E8F0F2 (Soft Cool Gray)
-// #D9EBE5 (Very Light Teal)
-// Muted Tones (for subtle sections)
-
-// #A5C6CE (Muted Cyan)
-// #89A9B6 (Soft Blue-Gray)
-// #B8D8D6 (Pale Greenish Teal)
-// Dark Neutrals (for contrast & dark mode)
-
-// #1B2B2D (Deep Charcoal)
-// #2C4A52 (Dark Cyan-Gray)
-// #3A5F68 (Muted Deep Teal)
 
 /** @type {import('tailwindcss').Config} */
 export default {
