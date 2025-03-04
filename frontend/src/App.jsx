@@ -22,6 +22,8 @@ import AppDownloadButton from './components/downloadButton/AppDownloadButton.jsx
 import Culture from './peopleComponents/culture/Culture.jsx';
 import InvestorsSection from './investorsComponent/investors/Investors.jsx';
 import ChargeupJourneyTimeline from './aboutComponents/timeline/Timeline.jsx';
+import ScrollToTop from './components/ScrollToTop.js';
+import ShootingStarsAndStarsBackgroundDemo from './solutionComponents/ShootingStarsAndStarsBackgroundDemo.jsx';
 // import GitHubCopilotComponent from './solutionComponents/GithubCopilotComponent.jsx';
 
 
@@ -29,8 +31,9 @@ import ChargeupJourneyTimeline from './aboutComponents/timeline/Timeline.jsx';
 
 function App() {
   return (
+    
     <Router>
-      
+      <ScrollToTop/>
       <div className="min-h-screen bg-background">
         <Navbar />
         <Routes>
@@ -70,6 +73,7 @@ function App() {
           <Route path="/solutions" element={
             <>
             {/* <GitHubCopilotComponent/> */}
+            <ShootingStarsAndStarsBackgroundDemo/>
             <Benefits/>
             <FAQ/>
             <AppDownloadButton/>

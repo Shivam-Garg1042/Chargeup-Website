@@ -1,33 +1,33 @@
 import { useState, useEffect, useRef } from "react";
-import image1 from "../../assets/oem1.png";
-import image2 from "../../assets/oem1.png";
-import image3 from "../../assets/oem1.png";
-import image4 from "../../assets/oem1.png";
+import image1 from "../../assets/Animation_1.mp4";
+import image2 from "../../assets/Animation_2.mp4";
+import image3 from "../../assets/Animation_3_1.mp4";
+import image4 from "../../assets/Animation_4.mp4";
 
 const partnershipSteps = [
   {
     id: 1,
     title: "Select your geography",
     description: "Select the area where you want to do business with Chargeup",
-    image: image1
+    animation: image4
   },
   {
     id: 2,
     title: "Decide your partnership",
     description: "Select whether you wan to become a dealer partner or a distributor partner",
-    image: image2
+    animation: image3
   },
   {
     id: 3,
     title: "Onboard with Chargeup",
     description: "Join our ecosystem : get trained, get store branded, get tech integrated and launch",
-    image: image3
+    animation: image2
   },
   {
     id: 4,
     title: "Accelerate your earnings",
     description: "Start growing and mximize your retunr on investment",
-    image: image4
+    animation: image1
   }
 ];
 
@@ -249,11 +249,11 @@ export default function ScrollComponent() {
                 className="h-screen flex items-center justify-center p-8"
               >
                 <div className="relative rounded-lg overflow-hidden shadow-xl transition-transform duration-500 transform hover:scale-105">
-                  <img 
-                    src={section.image} 
-                    alt={section.title} 
-                    className="max-w-full h-auto object-cover" 
-                  />
+                <video autoPlay loop muted className="max-w-full h-auto object-cover">
+                  <source src={section.animation} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
                 </div>
               </div>
             ))}

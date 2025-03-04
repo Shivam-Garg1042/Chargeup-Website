@@ -1,37 +1,46 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronRight } from 'lucide-react';
-// import careerImage from '../../assets/1.png';
+import { ChevronDown, ChevronRight, Briefcase, MapPin, Award } from 'lucide-react';
 
-const DepartmentItem = ({ title, isActive, onClick, jobRoles }) => (
-  <div className="mb-4">
+const DepartmentItem = ({ title, isActive, onClick, jobRoles,selectedRole }) => (
+  <div className="mb-5">
     <div 
       onClick={onClick}
       className={`
         w-full p-5 rounded-lg cursor-pointer transition-all duration-300 
-        hover:shadow-md border border-transparent flex items-center justify-between
+        hover:shadow-md border flex items-center justify-between
         ${isActive 
-          ? 'bg-white shadow-md scale-[1.02] border-l-4 border-green-600' 
-          : 'bg-gray-50 hover:bg-white hover:border-gray-200'
+          ? 'bg-white shadow-md scale-[1.02] border-l-4 border-accent text-primary' 
+          : 'bg-gray-50 border-transparent hover:bg-white hover:border-gray-200'
         }
       `}
     >
-      <span className={`text-sm md:text-base font-medium ${isActive ? 'text-gray-900' : 'text-gray-500'}`}>
+      <span className={`text-sm md:text-base font-medium ${isActive ? 'text-primary' : 'text-gray-600'}`}>
         {title}
       </span>
-      {isActive ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+      {isActive ? 
+        <ChevronDown className={`h-5 w-5 text-accent`} /> : 
+        <ChevronRight className="h-5 w-5 text-gray-400" />
+      }
     </div>
     
     <div className={`
       overflow-hidden transition-all duration-300 pl-4
-      ${isActive ? 'max-h-96 mt-2' : 'max-h-0'}
+      ${isActive ? 'max-h-96 mt-3' : 'max-h-0'}
     `}>
       {jobRoles.map((role, index) => (
         <div
           key={index}
-          className="p-3 ml-2 border-l-2 border-green-200 cursor-pointer hover:bg-green-50 rounded-r-lg mb-2 transition-all duration-200"
+          className={`
+            p-4 ml-2 border-l-2 cursor-pointer rounded-r-lg mb-3 
+            transition-all duration-200 flex items-center
+            ${selectedRole === role.id 
+              ? 'border-accent bg-accent bg-opacity-10 text-primary' 
+              : 'border-gray-200 hover:bg-accent hover:bg-opacity-5'}
+          `}
           onClick={() => role.onClick(role.id)}
         >
-          <span className="text-sm text-gray-600">{role.title}</span>
+          <Briefcase className="h-4 w-4 mr-2 text-accent" />
+          <span className="text-sm font-medium">{role.title}</span>
         </div>
       ))}
     </div>
@@ -39,58 +48,80 @@ const DepartmentItem = ({ title, isActive, onClick, jobRoles }) => (
 );
 
 const WelcomeSection = () => (
-  <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg mt-4 md:mt-0 md:ml-8 animate-fadeIn text-center">
-    <div className="mb-8">
-      <img 
-        // src={}
-        alt="Welcome to Careers" 
-        className="mx-auto w-full h-36 rounded-lg shadow-md"
-      />
+  <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg mt-4 md:mt-0 md:ml-8 animate-fadeIn text-center border border-gray-100">
+    <div className="mb-4 bg-primary bg-opacity-5 p-6 rounded-lg">
+      <div className="mx-auto w-20 h-20 rounded-full bg-accent flex items-center justify-center mb-4">
+        <Briefcase className="h-10 w-10 text-white" />
+      </div>
+      <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">Welcome to Our Career Portal</h2>
+      <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-4"></div>
     </div>
-    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Welcome to Our Career Portal</h2>
-    <p className="text-gray-600 text-base md:text-lg mb-6">
+    <p className="text-gray-600 text-base md:text-lg mb-8">
       Explore opportunities across different departments and find your perfect role with us.
       Select a department to view available positions.
     </p>
     <div className="flex flex-wrap gap-4 justify-center text-sm md:text-base">
-      <div className="bg-green-50 p-3 rounded-lg">
-        <span className="font-medium text-green-600">4 Departments</span>
+      <div className="bg-accent bg-opacity-10 p-4 rounded-lg flex items-center">
+        <Award className="h-5 w-5 mr-2 text-accent" />
+        <span className="font-medium text-primary">4 Departments</span>
       </div>
-      <div className="bg-green-50 p-3 rounded-lg">
-        <span className="font-medium text-green-600">Multiple Positions</span>
+      <div className="bg-secondary bg-opacity-10 p-4 rounded-lg flex items-center">
+        <Briefcase className="h-5 w-5 mr-2 text-secondary" />
+        <span className="font-medium text-primary">Multiple Positions</span>
       </div>
-      <div className="bg-green-50 p-3 rounded-lg">
-        <span className="font-medium text-green-600">Various Locations</span>
+      <div className="bg-primary bg-opacity-10 p-4 rounded-lg flex items-center">
+        <MapPin className="h-5 w-5 mr-2 text-primary" />
+        <span className="font-medium text-primary">Various Locations</span>
       </div>
     </div>
   </div>
 );
 
 const StorySection = ({ title, location, requirements, responsibilities }) => (
-  <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg mt-4 md:mt-0 md:ml-8 animate-fadeIn">
-    <div className="text-green-600 font-medium mb-2">{location}</div>
-    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">{title}</h2>
+  <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg mt-4 md:mt-0 md:ml-8 animate-fadeIn border border-gray-100">
+    <div className="flex items-center mb-2">
+      <MapPin className="h-5 w-5 mr-2 text-accent" />
+      <div className="text-accent font-medium">{location}</div>
+    </div>
+    <h2 className="text-xl md:text-2xl font-bold text-primary mb-6">{title}</h2>
     
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">Requirements</h3>
-      <ul className="list-disc pl-5 space-y-2">
+    <div className="mb-8 bg-primary bg-opacity-5 p-5 rounded-lg">
+      <h3 className="text-lg font-semibold text-primary mb-4 flex items-center">
+        <Award className="h-5 w-5 mr-2 text-accent" />
+        Requirements
+      </h3>
+      <ul className="space-y-3">
         {requirements.map((req, index) => (
-          <li key={index} className="text-gray-600 text-sm md:text-base">{req}</li>
+          <li key={index} className="text-gray-600 text-sm md:text-base flex items-start">
+            <div className="h-5 w-5 rounded-full bg-accent bg-opacity-20 flex items-center justify-center flex-shrink-0 mr-3 mt-0.5">
+              <div className="h-2 w-2 rounded-full bg-accent"></div>
+            </div>
+            {req}
+          </li>
         ))}
       </ul>
     </div>
     
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">Roles and responsibilities</h3>
-      <ul className="list-disc pl-5 space-y-2">
+    <div className="mb-8 bg-secondary bg-opacity-5 p-5 rounded-lg">
+      <h3 className="text-lg font-semibold text-primary mb-4 flex items-center">
+        <Briefcase className="h-5 w-5 mr-2 text-secondary" />
+        Roles and responsibilities
+      </h3>
+      <ul className="space-y-3">
         {responsibilities.map((resp, index) => (
-          <li key={index} className="text-gray-600 text-sm md:text-base">{resp}</li>
+          <li key={index} className="text-gray-600 text-sm md:text-base flex items-start">
+            <div className="h-5 w-5 rounded-full bg-secondary bg-opacity-20 flex items-center justify-center flex-shrink-0 mr-3 mt-0.5">
+              <div className="h-2 w-2 rounded-full bg-secondary"></div>
+            </div>
+            {resp}
+          </li>
         ))}
       </ul>
     </div>
     
-    <button className="w-full md:w-auto bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
-      Apply Now
+    <button className="w-full md:w-auto bg-accent text-white px-8 py-3.5 rounded-lg font-medium hover:bg-accent hover:bg-opacity-90 transition-colors shadow-md flex items-center justify-center">
+      <span>Apply Now</span>
+      <ChevronRight className="h-5 w-5 ml-2" />
     </button>
   </div>
 );
@@ -198,18 +229,16 @@ const Career = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 px-4 md:py-12 md:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 px-4 md:py-16 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Be a Charge(u)prenuer</h1>
-          {/* <p className="text-base md:text-lg text-gray-600 max-w-6xl mx-auto">
-            Select a department to explore open positions
-          </p> */}
+        <div className="text-center mb-10 md:mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary mb-6">Be a Charge(u)prenuer</h1>
+          <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col md:flex-row gap-8">
           {/* Departments Container */}
-          <div className="md:w-64">
+          <div className="md:w-72">
             {Object.entries(departments).map(([key, dept]) => (
               <DepartmentItem 
                 key={key}
@@ -220,6 +249,7 @@ const Career = () => {
                   ...role,
                   onClick: (roleId) => setSelectedRole(roleId)
                 }))}
+                selectedRole={selectedRole}
               />
             ))}
           </div>
