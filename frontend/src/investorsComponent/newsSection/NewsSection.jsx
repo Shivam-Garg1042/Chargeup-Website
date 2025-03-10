@@ -1,4 +1,3 @@
-
 import { useRef, useState, useEffect } from 'react';
 import { newsData } from './NewsData';
 import NewsCard from './NewsCard';
@@ -35,7 +34,7 @@ const NewsSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto relative"> {/* Added relative here */}
+    <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto relative"> {/* Added relative here */}
  <div className="text-center mb-16">
   <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
     <span className="relative">
@@ -79,7 +78,7 @@ const NewsSection = () => {
 
       <button 
         onClick={nextSlide} 
-        className="absolute right-4 top-[45%] -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200 z-10" 
+        className="absolute right-16 top-[45%] -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors duration-200 z-10" 
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />

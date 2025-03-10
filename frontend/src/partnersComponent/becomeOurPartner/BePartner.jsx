@@ -239,7 +239,7 @@ export default function ScrollComponent() {
           {/* Left Side - Scrollable Images */}
           <div 
             ref={containerRef} 
-            className="w-1/2 h-full overflow-y-auto scrollbar-hide bg-gray-100"
+            className="w-1/2 h-full overflow-y-auto scrollbar-hide bg-white"
           >
             {partnershipSteps.map((section, index) => (
               <div
@@ -248,7 +248,7 @@ export default function ScrollComponent() {
                 ref={(el) => (sectionRefs.current[index] = el)}
                 className="h-screen flex items-center justify-center p-8"
               >
-                <div className="relative rounded-lg overflow-hidden shadow-xl transition-transform duration-500 transform hover:scale-105">
+                <div className="relative  overflow-hidden  transition-transform duration-500 transform hover:scale-105">
                 <video autoPlay loop muted className="max-w-full h-auto object-cover">
                   <source src={section.animation} type="video/mp4" />
                   Your browser does not support the video tag.

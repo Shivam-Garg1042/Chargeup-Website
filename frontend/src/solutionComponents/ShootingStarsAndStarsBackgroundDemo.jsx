@@ -7,9 +7,9 @@ import { LampDemo } from "./LampDemo.jsx";
 export function ShootingStarsAndStarsBackgroundDemo() {
   return (
     <div
-      className="h-[40rem] rounded-md bg-slate-950 flex flex-col items-center justify-center relative w-full"
+      className="h-[40rem] rounded-md bg-slate-950 flex flex-col items-center justify-center relative w-full pb-28"
       style={{
-        height: "250vh",
+        height: "auto",
         borderRadius: "0.375rem",
         // backgroundColor: "#171717", // neutral-900
         display: "flex",

@@ -1,91 +1,42 @@
-import new1 from "../../assets/news1.jpg";
-import new2 from "../../assets/news2.png";
-import new3 from "../../assets/news3.jpg";
-import new4 from "../../assets/news4.png";
-import new5 from "../../assets/news5.jpg";
-import new6 from "../../assets/news6.jpg";
-import new7 from "../../assets/news7.png";
-import new8 from "../../assets/news8.png";
-
 export const newsData = [
   {
     id: 1,
-    title: "Green Delivery Revolution",
+    title: "Chargeup teams up for E3W financing",
     source: "Auto Economic Times",
     date: "June 5, 2023",
-    image: new1,
+    image: "/src/assets/news1.jpg",
     color: "#000000",
-    description: "Chargeup partners with Zomato for eco-friendly food delivery, boosting earnings and sustainability in India...",
-    link: "https://auto.economictimes.indiatimes.com/"
+    description: "Chargeup partners with Credit Fair and Ascend Capital to provide ₹100 crore in E3W financing for underserved drivers...",
+      link : "https: auto.economictimes.indiatimes.com/news/commercial-vehicle/chargeup-collaborates-with-credit-fair-and-ascend-capital-for-e3w-financing-solutions/107880159"
   },
   {
-    id: 2,
-    title: "Powering Growth",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new2,
-    color: "#000000",
-    description: "Chargeup, a Delhi NCR-based battery-as-a-service provider, has raised $7 million in Pre-Series A1 round...",
-    link: "https://auto.economictimes.indiatimes.com/"
+      id: 2,
+      title: "Electric vehicles: Only commitment, and no real deal",
+      source: "Auto Economic Times",
+      date: "June 5, 2023",
+      image: "/src/assets/news2.jpg",
+      color: "#000000",
+      description: "India's budget backs EVs but lacks clear plans or new subsidies...",
+      link : "https: www.forbesindia.com/amp/article/news/electric-vehicles-only-commitment-and-no-real-deal/91199/1"
   },
   {
-    id: 3,
-    title: "Tech-Driven Growth",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new3,
-    color: "#000000",
-    description: "Chargeup aims for positive cash flow soon. Focus on tech and data-driven platform for drivers...",
-    link: "https://auto.economictimes.indiatimes.com/"
-  },
-  {
-    id: 4,
-    title: "Strategic Tech Leadership",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new4,
-    color: "#000000",
-    description: "Chargeup hires Satish Mittal, ex-Meta exec, as CDO to lead tech, data, & partnerships at FiNeTech...",
-    link: "https://auto.economictimes.indiatimes.com/"
-  },
-  {
-    id: 5,
-    title: "EV Revolution Unveiled",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new5,
-    color: "#000000",
-    description: "Chargeup's EV Mela sees 1.5 cr vehicle bookings. Industry experts discuss benefits to end-users in unique event...",
-    link: "https://auto.economictimes.indiatimes.com/"
-  },
-  {
-    id: 6,
-    title: "Financing the Future",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new6,
-    color: "#000000",
-    description: "Chargeup CEO talks about financing Evs, highlights need for convenience over subsidies in Indian EV industry...",
-    link: "https://auto.economictimes.indiatimes.com/"
-  },
-  {
-    id: 7,
-    title: "Quick Charge Innovation",
-    source: "Auto Economic Times",
-    date: "June 5, 2023",
-    image: new7,
-    color: "#000000",
-    description: "Delhi's EV startup, secures $7M funding for its 2-minute battery swap service to help EV drivers reduce charging time...",
-    link: "https://auto.economictimes.indiatimes.com/"
-  },
-  {
-    id: 8,
-    title: "Empowering EV Financing",
-    source: "Autocar Pro News Desk",
-    date: "February 21, 2024",
-    image: new8,
-    color: "#000000",
-    description: "Chargeup, India's EV platform offering Energy-as-a-Service (EaaS), has entered into strategic partnerships with Credit Fair and Ascend Capital, to help facilitate 3EW financing...",
-    link: "https://www.autocarpro.in/news/chargeup-partners-with-credit-fair-and-ascend-capital-for-e3w-financing-119277"
-  }
+      id: 3,
+      title: "Chargeup to onboard 25,000 drivers in 17 cities by 2025",
+      source: "Auto Economic Times",
+      date: "June 5, 2023",
+      image: "/src/assets/news3.jpg",
+      color: "#000000",
+      description: "Chargeup to onboard 25,000 drivers and expand battery stations across 17 cities...",
+      link : "https: energy.economictimes.indiatimes.com/news/power/chargeup-to-onboard-25000-drivers-across-17-indian-cities-by-2025/109556468"
+    },
+    {
+      id: 4,
+      title: "Chargeup finalist at Aegis Graham Bell Awards",
+      source: "Auto Economic Times",
+      date: "June 5, 2023",
+      image: "/src/assets/news4.jpg",
+      color: "#000000",
+      description: "Chargeup honored as finalist in 14th Aegis Graham Bell Awards for innovation...",
+      link : "https: www.linkedin.com/posts/aegis-graham-bell-award_congratulations-to-chargeup-finalist-under-activity-7298635481326465025-1xTl?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAA2bHUoBindJf1EnJhHgLL-nZm964iDkCvQ"
+    }
 ];

@@ -3,7 +3,7 @@ import testimony1 from "../../assets/teamPhoto1.webp";
 import testimony2 from "../../assets/teamPhoto2.png";
 import testimony3 from "../../assets/teamPhoto1.webp";
 import testimony4 from "../../assets/teamPhoto2.png";
-
+import bkimg from "../../assets/collage_1.png";
 const Activities = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -30,15 +30,12 @@ const Activities = () => {
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Background Video */}
-      <video
+      <img
         className="absolute top-0 left-0 w-full  object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
+        src = {bkimg}
       >
-        <source src="../../assets/background-video.mp4" type="video/mp4" />
-      </video>
+       
+      </img>
 
       {/* Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#2E5077]/30 to-transparent" />

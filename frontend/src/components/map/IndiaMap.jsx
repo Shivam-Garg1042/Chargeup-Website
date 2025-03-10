@@ -17,7 +17,7 @@ const Legend = () => (
             </div>
             <div className="flex items-center">
                 <div className="w-4 h-4 rounded-full bg-yellow-400 mr-3"></div>
-                <span>Cities (Planned & Actual)</span>
+                <span>Cities</span>
             </div>
         </div>
     </div>
@@ -105,16 +105,14 @@ const IndiaMap = () => {
         'uttar pradesh': 'UP',
         'madhya pradesh': 'MP',
         'nct of delhi': 'Delhi',
-        'rajasthan': 'Raj',
-        'haryana': 'Har',
+        'himachal pradesh':'HP',
         'uttarakhand': 'UK',
-        'punjab': 'Pun',
-        'bihar': 'Bih',
+        // 'daman and diu':' ',
+        'dadara and nagar havelli':' ',
         'west bengal': 'WB',
-        'chhattisgarh': 'CG',
+        'lakshadweep':' ',
         'jammu and kashmir': 'J&K',
-        'jharkhand': 'Jhar',
-        'assam': 'As',
+        
         'andhra pradesh': 'AP'
       };
     // States data - match colors with image
@@ -139,27 +137,7 @@ const IndiaMap = () => {
         { 'hc-key': 'andhra pradesh', value: 2, color: '#009432' }
     ];
 
-    const stateDetails = {
-        'nct of delhi': { 
-            stations: 245,
-            activeUsers: 18500,
-            growth: "+35%",
-            description: "Capital region with highest station density"
-        },
-        'madhya pradesh': { 
-            stations: 156,
-            activeUsers: 12000,
-            growth: "+23%",
-            description: "Central hub with rapid expansion"
-        },
-        'uttar pradesh': { 
-            stations: 203,
-            activeUsers: 15000,
-            growth: "+31%",
-            description: "Highest density of charging networks"
-        },
-        // Add details for other states as needed
-    };
+    
 
     const chartOptions = {
         chart: {
@@ -258,28 +236,7 @@ const IndiaMap = () => {
         ]
     };
 
-    const CustomCard = ({ title, data, description, className = "" }) => (
-        <div className={`bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-300 ${className}`}>
-            <h3 className="text-2xl font-bold capitalize mb-4 text-blue-900">{title}</h3>
-            <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                        <p className="text-sm text-blue-600">Chargeup Networks</p>
-                        <p className="text-2xl font-bold text-blue-900">{data.stations}</p>
-                    </div>
-                    <div className="bg-green-50 p-4 rounded-lg">
-                        <p className="text-sm text-green-600">Active Users</p>
-                        <p className="text-2xl font-bold text-green-900">{data.activeUsers.toLocaleString()}</p>
-                    </div>
-                </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
-                    <p className="text-sm text-purple-600">Growth Rate</p>
-                    <p className="text-2xl font-bold text-purple-900">{data.growth}</p>
-                </div>
-                <p className="text-gray-600 mt-4 p-2 bg-gray-50 rounded-lg">{description}</p>
-            </div>
-        </div>
-    );
+   
 
     return (
         <div className="relative w-full h-screen bg-gradient-to-br from-blue-50 to-green-50 p-8">
@@ -317,16 +274,7 @@ const IndiaMap = () => {
                     </div>
                 </div>
 
-                {/* Details Panel - Only show on desktop */}
-                {!isMobile && selectedState && stateDetails[selectedState] && (
-                    <div className="fixed top-1/4 right-8 w-80 z-10">
-                        <CustomCard
-                            title={selectedState.replace(/-/g, ' ')}
-                            data={stateDetails[selectedState]}
-                            description={stateDetails[selectedState].description}
-                        />
-                    </div>
-                )}
+                
             </div>
         </div>
     );
