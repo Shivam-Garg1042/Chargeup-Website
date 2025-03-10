@@ -3,7 +3,7 @@ import testimony1 from "../../assets/teamPhoto1.webp";
 import testimony2 from "../../assets/teamPhoto2.png";
 import testimony3 from "../../assets/teamPhoto1.webp";
 import testimony4 from "../../assets/teamPhoto2.png";
-import bkimg from "../../assets/collage_1.png";
+import bkimg from "../../assets/Collage_1.png";
 const Activities = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
