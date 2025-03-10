@@ -1,46 +1,56 @@
+
+
 import { useState } from 'react';
 
-const ValueCard = ({ number, title, isActive, onClick }) => (
-  <div 
-    onClick={onClick}
-    className={`
-      relative cursor-pointer group transition-all duration-300
-      rounded-xl overflow-hidden
-      ${isActive ? 'md:col-span-2 row-span-2' : 'col-span-1'}
-    `}
-  >
-    <div className={`
-      h-full w-full p-6 md:p-8
-      flex flex-col items-center justify-center gap-4
-      transition-all duration-300  border-4 border-emerald-800
-      ${isActive ? 'bg-[#2C4A52] text-white' : 'bg-[#E8F0F2] hover:bg-[#D9EBE5]'}
-    `}>
+const ValueCard = ({ number, title, isActive, onClick }) => {
+  // Determine if the card number is odd or even for hover color
+  const isEven = number % 2 === 0;
+  
+  return (
+    <div 
+      onClick={onClick}
+      className={`
+        relative cursor-pointer group transition-all duration-300
+        rounded-xl overflow-hidden
+        ${isActive ? 'md:col-span-2 row-span-2' : 'col-span-1'}
+      `}
+    >
       <div className={`
-        w-16 h-16 rounded-full flex items-center justify-center
-        text-2xl font-bold transition-all duration-300
-        ${isActive ? 'bg-white text-[#2C4A52]' : 'bg-[#003444] text-white'}
+        h-full w-full p-6 md:p-8
+        flex flex-col items-center justify-center gap-4
+        transition-all duration-300 border-4 border-emerald-800
+        ${isActive 
+          ? 'bg-[#2C4A52] text-white' 
+          : `bg-[#E8F0F2] ${isEven ? 'hover:bg-[#D9EBE5]' : 'hover:bg-[#D9E6F0]'}`
+        }
       `}>
-        {number}
-      </div>
-      
-      <h3 className={`
-        text-center font-semibold transition-all duration-300
-        ${isActive ? 'text-lg md:text-xl' : 'text-base'}
-      `}>
-        {title}
-      </h3>
-      
-      <div className={`
-        overflow-hidden transition-all duration-300
-        ${isActive ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}
-      `}>
-        <p className="text-sm text-center">
-          {getDescription(number)}
-        </p>
+        <div className={`
+          w-16 h-16 rounded-full flex items-center justify-center
+          text-2xl font-bold transition-all duration-300
+          ${isActive ? 'bg-white text-[#2C4A52]' : 'bg-[#003444] text-white'}
+        `}>
+          {number}
+        </div>
+        
+        <h3 className={`
+          text-center font-semibold transition-all duration-300
+          ${isActive ? 'text-lg md:text-xl' : 'text-base'}
+        `}>
+          {title}
+        </h3>
+        
+        <div className={`
+          overflow-hidden transition-all duration-300
+          ${isActive ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}
+        `}>
+          <p className="text-sm text-center">
+            {getDescription(number)}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const getDescription = (number) => {
   const descriptions = {
@@ -63,13 +73,13 @@ const Commandments = () => {
 
   const values = [
     { number: 1, title: "Drivers are the centre of every decision we make" },
-    { number: 2, title: "Ask don’t Assume" },
+    { number: 2, title: "Ask don't Assume" },
     { number: 3, title: "Top line is vanity, bottom line is sanity, Cash is reality" },
     { number: 4, title: "We believe in T1 & L1, not either" },
     { number: 5, title: "Let your love be greater than your fear, driving your Returns on Risk" },
-    { number: 6, title: "We just don’t believe in miracles, but make it happen" },
+    { number: 6, title: "We just don't believe in miracles, but make it happen" },
     { number: 7, title: "Working long, hard and smart, you cant choose any two" },
-    { number: 8, title: "Your job isn’t done, until the job is done" },
+    { number: 8, title: "Your job isn't done, until the job is done" },
     { number: 9, title: "We are into the business of Growth, Fun & Care" },
     { number: 10, title: "Play for India and not for any individual" }
   ];
@@ -119,14 +129,3 @@ const Commandments = () => {
 };
 
 export default Commandments;
-
-
- 
-
-
-
-
-
-
-
-

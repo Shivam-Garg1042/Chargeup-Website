@@ -54,7 +54,7 @@ function App() {
               <AppDownloadButton/>
             </>
           } />
-          <Route path="/about" element={
+          {/* <Route path="/about" element={
             <>
             <br/>
             <br/>
@@ -68,7 +68,7 @@ function App() {
             
             
             
-            </>} />
+            </>} /> */}
           {/* <Route path="/contact" element={<SustainabilitySection/>} /> */}
           <Route path="/solutions" element={
             <>
@@ -76,6 +76,7 @@ function App() {
             <ShootingStarsAndStarsBackgroundDemo/>
             <Benefits/>
             <FAQ/>
+            <Story/>
             <AppDownloadButton/>
             
             </>
@@ -126,6 +127,7 @@ function App() {
             <br/>
             <br/>
             <br/>
+            <TeamGrid/>
             <Commandments/>
             
             

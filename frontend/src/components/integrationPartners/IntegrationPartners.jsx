@@ -16,6 +16,8 @@ import oem4 from "../../assets/oem4.jpg";
 import techpartner1 from "../../assets/techpartner1.png";
 import { useEffect } from "react";
 import AOS from "aos";
+import { FlipWordsDemo } from "./flip-heading";
+
 const IntegrationPartners = () => {
   useEffect(() => {
     AOS.init({
@@ -33,14 +35,7 @@ const IntegrationPartners = () => {
   return (
     <section className="py-12 px-4 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="max-w-full mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-[#003444] text-900 mb-4">
-          Our Business Partners
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-           Providing bundled offering to drivers via Chargeup Platform
-          </p>
-        </div>
+        <FlipWordsDemo/>
         <div className="space-y-8">
           {integrationData.map((row, index) => (
             <div key={row.id} className="relative">
