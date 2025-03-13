@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// Replacement for Next.js cn utility
+
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
@@ -59,7 +59,7 @@ export const FlipWords = ({
         )}
         style={{ color: "#119549" }}
         key={currentWord}>
-        {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
+        
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}

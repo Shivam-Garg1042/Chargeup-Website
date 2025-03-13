@@ -74,9 +74,10 @@ function App() {
             <>
             {/* <GitHubCopilotComponent/> */}
             <ShootingStarsAndStarsBackgroundDemo/>
-            <Benefits/>
+            {/* <Benefits/> */}
             <FAQ/>
             <Story/>
+            <ChargeupJourneyTimeline/>
             <AppDownloadButton/>
             
             </>
@@ -91,6 +92,8 @@ function App() {
             <IntegrationPartners/>
             <IndiaMap/>
             <BePartner/>
+            <GalleryWrapper/>
+            <Activities/>
             
             <AppDownloadButton/>
             
@@ -108,7 +111,7 @@ function App() {
             <AppDownloadButton/>
             </>
           } />
-           <Route path="/community" element={
+           {/* <Route path="/community" element={
             <>
               <br/>
             <br/>
@@ -116,11 +119,10 @@ function App() {
             <br/>
             <br/>
             
-            <GalleryWrapper/>
-            <Activities/>
+            
             <AppDownloadButton/>
             </>
-          } />
+          } /> */}
           <Route path="/people" element={
             <>
               <br/>

@@ -161,7 +161,7 @@ const TeamGrid = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* First row - 3 cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-20 mb-6">
         {firstRowData.map((member, index) => (
           <div
             key={index}
