@@ -24,7 +24,7 @@ const Home = () => {
       </video>
 
       {/* Content Overlay */}
-        <div className="absolute bottom-0 left-16 w-full z-10 flex flex-col justify-end items-start px-6 md:px-20 max-w-7xl mx-auto pb-10">
+        {/*<div className="absolute bottom-0 left-16 w-full z-10 flex flex-col justify-end items-start px-6 md:px-20 max-w-7xl mx-auto pb-10">
           <div data-aos="fade-up" data-aos-delay="200">
             <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-4">
               India's Driver {' '}
@@ -37,7 +37,23 @@ const Home = () => {
               Discover More
             </button>
           </div>
-        </div>
+  </div>*/}
+  <div className="absolute bottom-0 left-0 w-full z-10 flex flex-col justify-end items-start md:items-start px-6 md:px-20 max-w-7xl mx-auto pb-10">
+  <div data-aos="fade-up" data-aos-delay="200" className="text-center md:text-left w-full">
+    <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-4">
+      India's Driver First{' '}
+      <span className="text-[#79D7BE]">Platform</span>
+    </h1>
+    <p className="text-white text-xl max-w-2xl mb-8 mx-auto md:mx-0">
+      Enabling higher earning with easy EV ownership
+    </p>
+    <div className="flex justify-center md:justify-start">
+      <button className="bg-[#79D7BE] hover:bg-[#5bc7a7] text-[#003444] font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+        Discover More
+      </button>
+    </div>
+  </div>
+</div>
 
 
       {/* Gradient Overlay */}

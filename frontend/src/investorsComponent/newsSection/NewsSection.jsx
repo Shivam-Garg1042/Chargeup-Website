@@ -35,13 +35,19 @@ const NewsSection = () => {
 
   return (
     <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto relative"> {/* Added relative here */}
- <div className="text-center mb-16">
+ {/*<div className="text-center mb-16">
   <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
     <span className="relative">
       Chargeup
       <div className="absolute -bottom-3 left-0 w-full h-1 bg-emerald-500 rounded-full"></div>
     </span>
     <span> in the News</span>
+  </h2>
+  </div>*/}
+  <div className="text-center mb-16">
+  <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
+  Chargeup in the News
+    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-emerald-500 rounded-full"></div>
   </h2>
 </div>
   <div

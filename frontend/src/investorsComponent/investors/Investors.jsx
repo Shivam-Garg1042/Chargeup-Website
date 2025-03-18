@@ -37,12 +37,18 @@ const InvestorsSection = () => {
 
   return (
     <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
+      {/*<div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
           Our Investors
           <div className="absolute -bottom-3 left-0 w-1/3 h-1 bg-emerald-500 rounded-full"></div>
         </h2>
-      </div>
+  </div>*/}
+  <div className="text-center mb-16">
+  <h2 className="text-4xl md:text-5xl font-bold text-[#003048] relative inline-block">
+    Our Investors
+    <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-emerald-500 rounded-full"></div>
+  </h2>
+</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-items-center">
         {investors.map((investor) => (

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Linkedin } from "lucide-react";
-import employee1 from "../../assets/employee1.webp";
-import employee2 from "../../assets/employee2.webp";
+import employee1 from "../../assets/5.png";
+import employee2 from "../../assets/1.png";
 import employee3 from "../../assets/employee3.png";
-import employee4 from "../../assets/employee4.webp";
-import employee5 from "../../assets/employee5.jpg";
-import employee6 from "../../assets/employee6.webp";
-import employee7 from "../../assets/employee7.webp";
+import employee4 from "../../assets/2.png";
+import employee5 from "../../assets/3.png";
+import employee6 from "../../assets/employee7.webp";
+import employee7 from "../../assets/4.png";
 
 // Team member data - updated to match your desired format
 const teamData = [
@@ -100,7 +100,7 @@ const TeamCard = ({ name, role, image, industryExperience, atChargeup, linkedin,
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
             
             {/* Text overlay positioned at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+            {/* <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
               <div className="flex flex-col items-center">
                 <div className="bg-secondary/90 backdrop-blur-sm px-4 py-2 rounded-t-lg w-full">
                   <h3 className="text-xl font-bold text-center">{name}</h3>
@@ -110,9 +110,9 @@ const TeamCard = ({ name, role, image, industryExperience, atChargeup, linkedin,
                   {/* <div className="mt-1 flex items-center justify-center">
                     <span className="bg-accent/80 text-white px-2 py-1 text-xs font-bold rounded-full">{companyTag}</span>
                   </div> */}
-                </div>
+                {/* </div>
               </div>
-            </div>
+            </div> */} 
           </div>
         </div>
 
